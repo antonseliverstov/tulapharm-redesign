@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тульская фармацевтическая фабрика</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #e7e9ec;
+    --card: #ffffff;
+    --ink: #16191d;
+    --muted: #7d8590;
+    --line: #e6e9ee;
+    --sky: #8fcbe3;        /* светло-голубой акцент заголовков, как в референсе */
+    --sky-soft: #a9d6ea;
+    --sky-pale: #e6f3f9;
+    --brand: #009fd9;      /* синий из логотипа фабрики */
+    --green: #23944f;      /* зелёный из логотипа фабрики */
+    --dark: #1d2126;
+    --r-xl: 30px;
+    --r-lg: 22px;
+    --r-md: 16px;
+    --notch: 30px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Raleway", system-ui, sans-serif;
+    color: var(--ink);
+    background: radial-gradient(1200px 700px at 50% -10%, #f6f7f8, var(--bg) 70%) fixed, var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.45;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  .page { max-width: 1240px; margin: 0 auto; padding: 32px 24px 64px; display: grid; gap: 28px; }
+  .card {
+    background: var(--card);
+    border-radius: var(--r-xl);
+    padding: 28px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 30px 60px -30px rgba(30, 50, 70, .25), 0 4px 14px rgba(30,50,70,.05);
+  }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+  /* ---------- header / nav ---------- */
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .brand img { width: 26px; height: auto; }
+  .nav { display: flex; gap: 26px; font-size: 13px; font-weight: 500; }
+  .nav a { color: var(--ink); opacity: .85; transition: color .2s; }
+  .nav a:hover { color: var(--brand); }
+  .nav.faint a { color: #b9c0c8; }
+  .nav.faint a.on { color: var(--sky); }
+  .mini-brand { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .mini-brand img { width: 16px; }
+
+  /* ---------- typography ---------- */
+  .h-display {
+    font-size: clamp(30px, 4.1vw, 50px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: .035em;
+    text-transform: uppercase;
+  }
+  .h-section { font-size: clamp(22px, 2.3vw, 28px); font-weight: 700; letter-spacing: .02em; text-transform: uppercase; line-height: 1.1; }
+  .sky { color: var(--sky); }
+  .lead { font-size: 15px; color: var(--muted); max-width: 60ch; }
+
+  /* ---------- inverted-corner notches ---------- */
+  .media { position: relative; border-radius: var(--r-lg); overflow: hidden; }
+  .media > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .notch { position: absolute; background: var(--card); z-index: 2; }
+  .notch::before, .notch::after { content: ""; position: absolute; width: var(--notch); height: var(--notch); }
+  /* верхний левый вырез */
+  .notch.tl { top: 0; left: 0; border-bottom-right-radius: var(--notch); }
+  .notch.tl::before { top: 0; left: 100%; background: radial-gradient(circle at 100% 100%, transparent calc(var(--notch) - .5px), var(--card) var(--notch)); }
+  .notch.tl::after { top: 100%; left: 0; background: radial-gradient(circle at 100% 100%, transparent calc(var(--notch) - .5px), var(--card) var(--notch)); }
+  /* нижний правый вырез */
+  .notch.br { right: 0; bottom: 0; border-top-left-radius: var(--notch); }
+  .notch.br::before { bottom: 100%; right: 0; background: radial-gradient(circle at 0 0, transparent calc(var(--notch) - .5px), var(--card) var(--notch)); }
+  .notch.br::after { bottom: 0; right: 100%; background: radial-gradient(circle at 0 0, transparent calc(var(--notch) - .5px), var(--card) var(--notch)); }
+  /* верхний правый вырез */
+  .notch.tr { top: 0; right: 0; border-bottom-left-radius: var(--notch); }
+  .notch.tr::before { top: 0; right: 100%; background: radial-gradient(circle at 0 100%, transparent calc(var(--notch) - .5px), var(--card) var(--notch)); }
+  .notch.tr::after { top: 100%; right: 0; background: radial-gradient(circle at 0 100%, transparent calc(var(--notch) - .5px), var(--card) var(--notch)); }
+
+  .glass {
+    background: rgba(140,200,230,.22);
+    border: 1px solid rgba(255,255,255,.45);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    color: #fff;
+  }
+  .ring { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid currentColor; flex: none; }
+
+  /* ---------- HERO ---------- */
+  .hero .media { height: clamp(520px, 52vw, 640px); }
+  .hero .media > img.bg { object-position: 70% 50%; }
+  .hero .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,159,217,.08), rgba(0,50,100,.35)); }
+  .hero .notch.tl { padding: 0 34px 26px 0; max-width: 72%; }
+  .hero .pill {
+    position: absolute; z-index: 2; left: 26px; bottom: 150px;
+    padding: 12px 22px; border-radius: 999px; font-size: 15px; font-weight: 500;
+  }
+  .hero .notch.br { padding: 14px 0 0 14px; width: min(46%, 520px); }
+  .hero-plate {
+    background: var(--sky-soft); border-radius: var(--r-md);
+    padding: 22px 26px; display: flex; gap: 18px; align-items: center;
+    color: #fff; font-size: 15px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; line-height: 1.35;
+  }
+  .hero-plate .ring { width: 34px; height: 34px; border-width: 2px; }
+  .hero-stats { position: absolute; z-index: 2; left: 26px; bottom: 26px; display: flex; gap: 12px; flex-wrap: wrap; max-width: 50%; }
+  .hero-stats div { padding: 12px 18px; border-radius: var(--r-md); min-width: 120px; }
+  .hero-stats b { display: block; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
+  .hero-stats span { font-size: 12px; opacity: .92; }
+
+  /* ---------- PRODUCTS (toggle list) ---------- */
+  .split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 14px; margin-top: 20px; }
+  .toggles { display: grid; gap: 10px; }
+  .tog {
+    display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: start;
+    padding: 14px; border-radius: var(--r-md); background: #f4f6f8; cursor: pointer;
+    transition: background .25s, color .25s; border: 0; text-align: left; font: inherit; color: inherit;
+  }
+  .tog .ico { width: 44px; height: 44px; border-radius: 12px; background: #fff; display: grid; place-items: center; color: var(--sky); }
+  .tog h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .tog p { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .switch { width: 30px; height: 17px; border-radius: 999px; background: #cfd5db; position: relative; margin-top: 2px; transition: background .25s; }
+  .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 13px; height: 13px; border-radius: 50%; background: #fff; transition: transform .25s; }
+  .tog[aria-pressed="true"] .switch::after { transform: translateX(13px); }
+  .tog.light[aria-pressed="true"] { background: var(--sky-soft); }
+  .tog.light[aria-pressed="true"] p { color: #fff; }
+  .tog.light[aria-pressed="true"] .switch { background: #fff; }
+  .tog.light[aria-pressed="true"] .switch::after { background: var(--sky-soft); }
+  .tog.dark[aria-pressed="true"] { background: var(--dark); color: #fff; }
+  .tog.dark[aria-pressed="true"] p { color: #aab2bb; }
+  .tog.dark[aria-pressed="true"] .ico { background: #2d333a; }
+  .tog.dark[aria-pressed="true"] .switch { background: var(--sky); }
+  .side-photo { min-height: 330px; }
+  .side-photo .caps { position: absolute; left: 14px; right: 14px; bottom: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; color: #fff; font-size: 10.5px; line-height: 1.35; z-index: 1; }
+  .side-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,40,80,.55)); }
+  .more { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--brand); }
+
+  /* ---------- PRODUCTION columns ---------- */
+  .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+  .pcol { background: #f4f6f8; border-radius: var(--r-md); display: flex; flex-direction: column; overflow: hidden; }
+  .pcol .body { padding: 14px 14px 12px; flex: 1; }
+  .pcol .num { float: right; font-size: 10px; color: #b4bcc4; }
+  .pcol h4 { font-size: 12px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+  .chip { font-size: 9.5px; padding: 3px 9px; border-radius: 999px; background: var(--sky-soft); color: #134; font-weight: 500; }
+  .pcol p { font-size: 10px; color: var(--muted); line-height: 1.45; }
+  .pcol .label { font-size: 10px; font-weight: 700; margin-bottom: 3px; }
+  .pcol .ph { height: 120px; position: relative; }
+  .pcol .ph img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.9); }
+  .pcol .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,159,217,.1), rgba(0,120,200,.35)); mix-blend-mode: multiply; }
+  .dot-badge { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--dark); color: #fff; vertical-align: middle; margin: 0 6px 4px; }
+
+  /* ---------- VALUES (glass over photo) ---------- */
+  .values .media { min-height: 560px; padding: 150px 26px 26px; display: flex; align-items: flex-end; }
+  .values .media > img.bg { filter: blur(3px) saturate(1.1); transform: scale(1.04); object-position: 60% 30%; }
+  .values .media::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,110,180,.15) 20%, rgba(0,60,120,.6)); z-index: 1; }
+  .values .notch.tl { padding: 6px 34px 24px 6px; }
+  .values .notch.tr { padding: 6px 8px 18px 20px; }
+  .values-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; }
+  .vcard { border-radius: var(--r-lg); padding: 22px 22px 26px; }
+  .vcard .vicon { width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,.35); display: grid; place-items: center; margin-bottom: 30px; }
+  .vcard h3 { font-size: 21px; font-weight: 600; margin-bottom: 16px; }
+  .vcard ul { list-style: none; display: grid; gap: 10px; }
+  .vcard li { display: grid; grid-template-columns: 16px 1fr; gap: 10px; font-size: 13.5px; line-height: 1.35; opacity: .95; }
+  .vcard li::before { content: "+"; display: grid; place-items: center; width: 14px; height: 14px; margin-top: 2px; border-radius: 3px; background: #fff; color: var(--brand); font-size: 12px; font-weight: 700; line-height: 1; }
+
+  /* ---------- ABOUT / STATS ---------- */
+  .about { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: stretch; }
+  .about .text p { font-size: 14px; color: #4a525b; margin-top: 14px; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat { border-radius: var(--r-md); padding: 20px; background: #f4f6f8; display: flex; flex-direction: column; justify-content: space-between; min-height: 130px; }
+  .stat b { font-size: 38px; font-weight: 600; letter-spacing: .01em; line-height: 1; }
+  .stat span { font-size: 12.5px; color: var(--muted); }
+  .stat.sky { background: var(--sky-soft); color: #fff; }
+  .stat.sky span { color: #fff; }
+  .stat.dark { background: var(--dark); color: #fff; }
+  .stat.dark span { color: #aab2bb; }
+  .stat.photo { position: relative; overflow: hidden; color: #fff; }
+  .stat.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .stat.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,60,110,.25), rgba(0,40,80,.75)); }
+  .stat.photo > * { position: relative; z-index: 1; }
+  .stat.photo span { color: #fff; }
+
+  /* ---------- CERTIFICATES + PARTNERS ---------- */
+  .certs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
+  .cert { background: #f4f6f8; border-radius: var(--r-md); padding: 10px; display: grid; gap: 10px; }
+  .cert img { aspect-ratio: 3/4; object-fit: cover; border-radius: 10px; width: 100%; }
+  .cert a { font-size: 11px; font-weight: 600; color: var(--brand); display: flex; justify-content: space-between; align-items: center; }
+  .partners { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .partners span { padding: 10px 16px; border-radius: 999px; background: #f4f6f8; font-size: 13px; font-weight: 500; }
+  .partners span:nth-child(3n+1) { background: var(--sky-pale); }
+
+  /* ---------- CONTACTS ---------- */
+  .contact { display: grid; grid-template-columns: 1fr 1.1fr; gap: 14px; }
+  .cinfo { display: grid; gap: 10px; align-content: start; margin-top: 18px; }
+  .cline { display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: center; padding: 12px; border-radius: var(--r-md); background: #f4f6f8; font-size: 14px; }
+  .cline .ico { width: 40px; height: 40px; border-radius: 12px; background: #fff; color: var(--brand); display: grid; place-items: center; }
+  .cline small { display: block; font-size: 11px; color: var(--muted); }
+  form { background: var(--dark); color: #fff; border-radius: var(--r-lg); padding: 24px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; }
+  form h3 { grid-column: 1 / -1; font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  form input, form textarea {
+    font: inherit; font-size: 13px; color: #fff; background: #2a3037; border: 1px solid #353c44; border-radius: 12px; padding: 12px 14px; width: 100%;
+  }
+  form input::placeholder, form textarea::placeholder { color: #8b949e; }
+  form input:focus, form textarea:focus { outline: 2px solid var(--sky); outline-offset: 1px; }
+  form textarea { grid-column: 1 / -1; min-height: 96px; resize: vertical; }
+  form .foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  form .foot p { font-size: 10.5px; color: #8b949e; max-width: 46ch; }
+  form button { font: inherit; font-weight: 600; font-size: 13px; padding: 13px 26px; border-radius: 999px; border: 0; background: var(--sky); color: var(--dark); cursor: pointer; }
+  form button:hover { background: #fff; }
+
+  footer { text-align: center; font-size: 12px; color: var(--muted); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1000px) {
+    .row-2, .about, .contact { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr; }
+    .values .media { padding-top: 130px; }
+  }
+  @media (max-width: 720px) {
+    .page { padding: 16px 12px 40px; gap: 16px; }
+    .card { padding: 16px; border-radius: 22px; }
+    .nav { display: none; }
+    :root { --notch: 22px; }
+    .hero .media { height: 640px; }
+    .hero .notch.tl { max-width: 92%; padding: 0 18px 16px 0; }
+    .hero .pill { bottom: auto; top: 250px; left: 16px; font-size: 13px; }
+    .hero .notch.br { width: 100%; }
+    .hero-plate { font-size: 12px; padding: 16px; }
+    .hero-stats { left: 16px; bottom: 116px; max-width: calc(100% - 32px); }
+    .hero-stats div { min-width: 0; flex: 1; padding: 10px 12px; }
+    .hero-stats b { font-size: 20px; }
+    .split, .cols-3, .certs, .stats { grid-template-columns: 1fr; }
+    .certs { grid-template-columns: 1fr 1fr; }
+    form { grid-template-columns: 1fr; }
+    form .foot { flex-direction: column; align-items: stretch; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- 01 · HERO -->
+  <section class="card hero" id="top">
+    <header class="topbar">
+      <a class="brand" href="#top"><img src="img/p1.jpg" alt="">ООО «Тульская фармацевтическая фабрика»</a>
+      <nav class="nav">
+        <a href="#about">О нас</a>
+        <a href="#products">Продукция</a>
+        <a href="#values">Ценности</a>
+        <a href="#partners">Партнёры</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </header>
+
+    <div class="media">
+      <img class="bg" src="img/p2.jpg" alt="Производственный цех фабрики">
+      <div class="notch tl">
+        <h1 class="h-display">
+          <span class="sky">Производство по стандартам GMP</span><br>
+          Более 50 лет опыта<br>
+          237+ препаратов
+        </h1>
+      </div>
+
+      <div class="pill glass">Качественные препараты по доступной цене</div>
+
+      <div class="hero-stats">
+        <div class="glass"><b>1972</b><span>год основания</span></div>
+        <div class="glass"><b>20+</b><span>препаратов из ЖНВЛП</span></div>
+      </div>
+
+      <div class="notch br">
+        <div class="hero-plate">
+          <span class="ring"></span>
+          <span>Тульская фармацевтическая фабрика — участник НОЦ мирового уровня «ТулаТех»</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 + 03 · PRODUCTS / PRODUCTION -->
+  <div class="row-2">
+    <section class="card" id="products">
+      <div class="topbar">
+        <nav class="nav faint" style="gap:16px;font-size:10px"><a href="#about">О нас</a><a class="on" href="#products">Продукция</a><a href="#partners">Партнёры</a><a href="#contact">Контакты</a></nav>
+        <span class="mini-brand"><img src="img/p1.jpg" alt="">Тульская фарм. фабрика</span>
+      </div>
+      <h2 class="h-section">Формы <span class="sky">выпуска</span></h2>
+
+      <div class="split">
+        <div>
+          <div class="toggles" id="toggles">
+            <button class="tog" aria-pressed="false" type="button">
+              <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span>
+              <span><h4>Мягкие формы</h4><p>Гели, крема, мази и пасты: Ацикловир, Гепариновая мазь, Декспантенол, Диклофенак-гель.</p></span>
+              <span class="switch"></span>
+            </button>
+            <button class="tog light" aria-pressed="true" type="button">
+              <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
+              <span><h4>Жидкие формы</h4><p>Растворы, настойки, экстракты, масла, капли, спреи, сиропы и эликсиры.</p></span>
+              <span class="switch"></span>
+            </button>
+            <button class="tog dark" aria-pressed="false" type="button">
+              <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="M12 7.5l-3.7 8.3" transform="rotate(-35 12 12)"/></svg></span>
+              <span><h4>Суппозитории, порошки, таблетки</h4><p>Суппозитории, порошки и гранулы для приготовления, таблетки и капсулы.</p></span>
+              <span class="switch"></span>
+            </button>
+          </div>
+          <a class="more" href="https://tulapharm.com/catalog">Весь каталог — 237+ наименований →</a>
+        </div>
+        <div class="media side-photo">
+          <img class="bg" src="img/p3.jpg" alt="Линия фасовки">
+          <div class="caps">
+            <span>Фасовка жидких и мягких лекарственных форм — первичная и вторичная упаковка.</span>
+            <span>Только сырьё из реестра одобренных производителей и поставщиков.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="production">
+      <div class="topbar">
+        <nav class="nav faint" style="gap:16px;font-size:10px"><a href="#about">О нас</a><a class="on" href="#production">Производство</a><a href="#partners">Партнёры</a><a href="#contact">Контакты</a></nav>
+        <span class="mini-brand"><img src="img/p1.jpg" alt="">Тульская фарм. фабрика</span>
+      </div>
+      <h2 class="h-section"><span class="sky">Производство</span><span class="dot-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg></span>GMP</h2>
+
+      <div class="cols-3">
+        <article class="pcol">
+          <div class="body">
+            <span class="num">01</span>
+            <h4>Производство лекарственных форм</h4>
+            <div class="chips"><span class="chip">Растворы</span><span class="chip">Мази</span><span class="chip">Настойки</span><span class="chip">Порошки</span></div>
+            <div class="label">3 этаж</div>
+            <p>Субстанции и нестерильные формы: растворы, линименты, масла, суспензии, экстракты. На 2 этаже — упаковка.</p>
+          </div>
+          <div class="ph"><img src="img/p3.jpg" alt=""></div>
+        </article>
+        <article class="pcol">
+          <div class="body">
+            <span class="num">02</span>
+            <h4>Водоподготовка</h4>
+            <div class="chips"><span class="chip">ФС.2.2.0020.15</span><span class="chip">IQ / OQ</span></div>
+            <div class="label">Установка 2T-PWG</div>
+            <p>Вода очищенная участвует в подготовке помещений, посуды и приготовлении препаратов. Оборудование прошло квалификацию.</p>
+          </div>
+          <div class="ph"><img src="img/p2.jpg" alt="" style="object-position:80% 50%"></div>
+        </article>
+        <article class="pcol">
+          <div class="body">
+            <span class="num">03</span>
+            <h4>Воздухоподготовка</h4>
+            <div class="chips"><span class="chip">Класс K</span><span class="chip">2 ступени</span></div>
+            <div class="label">Приток и вытяжка</div>
+            <p>Помещения для полупродуктов получают воздух, прошедший двухступенчатую очистку.</p>
+          </div>
+          <div class="ph"><img src="img/p6.jpg" alt="" style="object-position:60% 40%"></div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- 04 · VALUES -->
+  <section class="card values" id="values">
+    <div class="media">
+      <img class="bg" src="img/p6.jpg" alt="">
+      <div class="notch tl">
+        <nav class="nav faint" style="font-size:12px;margin-bottom:26px"><a href="#about">О нас</a><a class="on" href="#values">Ценности</a><a href="#products">Продукция</a><a href="#contact">Контакты</a></nav>
+        <h2 class="h-display" style="font-size:clamp(26px,3vw,38px)">Наши<br><span class="sky">ценности</span></h2>
+      </div>
+      <div class="notch tr"><span class="brand" style="font-size:11px"><span class="ring" style="width:18px;height:18px"></span>Тульская фармацевтическая фабрика</span></div>
+
+      <div class="values-grid">
+        <article class="vcard glass">
+          <div class="vicon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg></div>
+          <h3>Прогрессивность</h3>
+          <ul>
+            <li>Вкладываем силы и средства в исследования</li>
+            <li>Развиваем новые технологии производства</li>
+            <li>Выводим эффективные препараты в промышленный выпуск</li>
+          </ul>
+        </article>
+        <article class="vcard glass">
+          <div class="vicon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Добросовестность</h3>
+          <ul>
+            <li>Несём ответственность за здоровье людей</li>
+            <li>Контролируем все стадии разработки и испытаний</li>
+            <li>Гарантируем качество каждой серии</li>
+          </ul>
+        </article>
+        <article class="vcard glass">
+          <div class="vicon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div>
+          <h3>Эффективность</h3>
+          <ul>
+            <li>Выстраиваем прозрачные бизнес-процессы</li>
+            <li>Модернизируем фармацевтические производства</li>
+            <li>Выпускаем востребованные препараты разных групп</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · ABOUT -->
+  <section class="card about" id="about">
+    <div class="text">
+      <h2 class="h-section">О <span class="sky">фабрике</span></h2>
+      <p>«Тульская фармацевтическая фабрика» основана в 1972 году. Площади и технологическое оборудование реорганизованы в соответствии с требованиями надлежащей производственной практики (GMP). Построены новые склады сырья и вспомогательных материалов, спиртохранилище и котельная; планируется новое производственно-складское здание.</p>
+      <p>Фабрика участвует в локализации и импортозамещении лекарственных препаратов в России. Производство ведётся в строгом соответствии с правилами организации производства и контроля качества лекарственных средств для медицинского применения.</p>
+      <p style="font-size:12.5px;color:var(--muted)">Лицензия № 00281-ЛС от 21.05.2021, выдана Минпромторгом России.</p>
+    </div>
+    <div class="stats">
+      <div class="stat sky"><b>50+</b><span>лет производим лекарства</span></div>
+      <div class="stat"><b>237+</b><span>наименований препаратов</span></div>
+      <div class="stat photo"><img src="img/p4.jpg" alt=""><b>20+</b><span>препаратов из перечня ЖНВЛП</span></div>
+      <div class="stat dark"><b>GMP</b><span>международный стандарт производства</span></div>
+    </div>
+  </section>
+
+  <!-- 06 · CERTIFICATES + PARTNERS -->
+  <div class="row-2">
+    <section class="card">
+      <h2 class="h-section">Наши <span class="sky">сертификаты</span></h2>
+      <div class="certs">
+        <div class="cert"><img src="img/p7.jpg" alt="Лицензия"><a href="#">Скачать <span>↓</span></a></div>
+        <div class="cert"><img src="img/p8.jpg" alt="Лицензия"><a href="#">Скачать <span>↓</span></a></div>
+        <div class="cert"><img src="img/p9.jpg" alt="Лицензия"><a href="#">Скачать <span>↓</span></a></div>
+        <div class="cert"><img src="img/p10.jpg" alt="Лицензия"><a href="#">Скачать <span>↓</span></a></div>
+      </div>
+    </section>
+    <section class="card" id="partners">
+      <h2 class="h-section">Наши <span class="sky">партнёры</span></h2>
+      <p class="lead" style="margin-top:12px;font-size:14px">Ведущие федеральные и региональные аптечные сети, а также аптеки местного значения.</p>
+      <div class="partners">
+        <span>АС «Апрель»</span><span>Фармленд</span><span>Аптеки «Твой доктор»</span><span>Планета Здоровья</span>
+        <span>Аптека «Алоэ»</span><span>ООО «Здравсервис»</span><span>Аптеки «Столички»</span><span>Аптечная сеть 36,6</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- 07 · CONTACTS -->
+  <section class="card" id="contact">
+    <h2 class="h-section">Наши <span class="sky">контакты</span></h2>
+    <div class="contact">
+      <div class="cinfo">
+        <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span><small>Адрес</small>300004, Тула, Торховский пр-д, 10</span></div>
+        <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><small>Телефон</small><a href="tel:+74872410473">+7 (4872) 41-04-73</a></span></div>
+        <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Эл. почта</small><a href="mailto:info@farmfabrica.ru">info@farmfabrica.ru</a></span></div>
+        <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg></span><span><small>Претензии</small>+7 (4872) 41-04-73, доб. 144 · p.kotova@farmfabrica.ru</span></div>
+      </div>
+      <form onsubmit="event.preventDefault()">
+        <h3>Обратная связь</h3>
+        <input placeholder="ФИО*" required>
+        <input placeholder="Телефон" type="tel">
+        <input placeholder="Компания">
+        <input placeholder="Эл. почта*" type="email" required>
+        <textarea placeholder="Текст сообщения или вопроса*" required></textarea>
+        <div class="foot">
+          <p>Нажимая «Отправить», вы подтверждаете согласие на обработку персональных данных.</p>
+          <button type="submit">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>© ООО «Тульская фармацевтическая фабрика», 1972–2026</footer>
+</main>
+
+<script>
+  // переключатели форм выпуска: активен один пункт
+  document.querySelectorAll('#toggles .tog').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#toggles .tog').forEach(b => b.setAttribute('aria-pressed', b === btn));
+    });
+  });
+</script>
+</body>
+</html>
