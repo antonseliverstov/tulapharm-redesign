@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Каталог продукции — Тульская фармацевтическая фабрика</title>
+<title>Каталог продукции&nbsp;— Тульская фармацевтическая фабрика</title>
 <meta name="description" content="Каталог Тульской фармацевтической фабрики: 125 препаратов — мази, гели, растворы, настойки, суппозитории, порошки и сиропы.">
 <link rel="icon" href="img/p1-64.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,41 +14,65 @@
 </head>
 <body>
 <main class="page">
-  <header class="card site-head">
-    <div class="topbar">
-      <a class="brand" href="index.html"><img src="img/p1-64.webp" width="26" height="34" alt="">ООО «Тульская фармацевтическая фабрика»</a>
+  <div class="card site-head">
+    <header class="topbar">
+      <a class="brand" href="index.html"><img src="img/p1-64.webp" width="26" height="34" alt=""><span class="brand-long">ООО «Тульская фармацевтическая фабрика»</span><span class="brand-short">Тульская фармацевтическая фабрика</span></a>
       <nav class="nav" aria-label="Основное меню">
-        <a href="index.html#about">О нас</a>
+        <a href="index.html#about">О&nbsp;нас</a>
         <a href="catalog.html" aria-current="page">Каталог</a>
         <a href="index.html#production">Производство</a>
         <a href="index.html#documents">Документы</a>
         <a href="index.html#contact">Контакты</a>
         <a href="index.html#pharmacovigilance">Фармаконадзор</a>
       </nav>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </header>
+    <div class="mnav" id="mnav" hidden>
+      <div class="mnav-panel" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="mnav-head">
+          <span class="brand"><img src="img/p1-64.webp" width="22" height="29" alt="">Тульская фармацевтическая фабрика</span>
+          <button class="mnav-close" type="button" aria-label="Закрыть меню"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+        <nav class="mnav-links" aria-label="Мобильное меню">
+          <a href="index.html#about">О&nbsp;нас</a>
+          <a href="catalog.html" aria-current="page">Каталог</a>
+          <a href="index.html#production">Производство</a>
+          <a href="index.html#documents">Документы</a>
+          <a href="index.html#contact">Контакты</a>
+          <a href="index.html#pharmacovigilance">Фармаконадзор</a>
+        </nav>
+        <div class="mnav-contacts">
+          <a href="tel:+74872410473"><small>Телефон</small>+7 (4872) 41-04-73</a>
+          <a href="mailto:info@farmfabrica.ru"><small>Эл. почта</small>info@farmfabrica.ru</a>
+          <span><small>Адрес</small>300004, Тула, Торховский пр-д, 10</span>
+          <a href="tel:88007778604"><small>Фармаконадзор, бесплатно</small>8-800-777-86-04</a>
+        </div>
+        <a class="btn mnav-cta" href="index.html#contact">Оставить заявку</a>
+      </div>
     </div>
-  </header>
+  </div>
 
   <section class="card cat-hero">
     <nav class="crumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span>Каталог</span></nav>
     <div class="sec-head">
       <h1 class="h-section">Каталог <span class="sky">продукции</span></h1>
-      <p>125 препаратов в восьми группах лекарственных форм. В карточке — состав, показания, способ применения и инструкция в PDF.</p>
+      <p>125 препаратов в&nbsp;восьми группах лекарственных форм. В&nbsp;карточке&nbsp;— состав, показания, способ применения и&nbsp;инструкция в&nbsp;PDF.</p>
     </div>
     <div class="filters">
-      <label class="search"><span class="sr-only">Поиск по названию</span>
+      <label class="search"><span class="sr-only">Поиск по&nbsp;названию</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
         <input id="q" type="search" placeholder="Название препарата или форма выпуска" autocomplete="off">
       </label>
       <div class="chips-filter" role="group" aria-label="Группа препаратов">
-        <button type="button" class="fchip" data-cat="" aria-pressed="true">Все <span>125</span></button>
-        <button type="button" class="fchip" data-cat="gels" aria-pressed="false">Гели, крема, мази и пасты <span>42</span></button>
-        <button type="button" class="fchip" data-cat="solutions" aria-pressed="false">Бальзамы, растворы и концентраты <span>23</span></button>
-        <button type="button" class="fchip" data-cat="drops" aria-pressed="false">Капли и спреи <span>11</span></button>
-        <button type="button" class="fchip" data-cat="tinctures" aria-pressed="false">Настойки, экстракты и масла <span>16</span></button>
-        <button type="button" class="fchip" data-cat="powders" aria-pressed="false">Порошки и гранулы <span>5</span></button>
-        <button type="button" class="fchip" data-cat="syrups" aria-pressed="false">Сиропы и эликсиры <span>4</span></button>
+        <button type="button" class="fchip" data-cat="" aria-pressed="true">Все&nbsp;<span>125</span></button>
+        <button type="button" class="fchip" data-cat="gels" aria-pressed="false">Гели, крема, мази и&nbsp;пасты <span>42</span></button>
+        <button type="button" class="fchip" data-cat="solutions" aria-pressed="false">Бальзамы, растворы и&nbsp;концентраты <span>23</span></button>
+        <button type="button" class="fchip" data-cat="drops" aria-pressed="false">Капли и&nbsp;спреи <span>11</span></button>
+        <button type="button" class="fchip" data-cat="tinctures" aria-pressed="false">Настойки, экстракты и&nbsp;масла <span>16</span></button>
+        <button type="button" class="fchip" data-cat="powders" aria-pressed="false">Порошки и&nbsp;гранулы <span>5</span></button>
+        <button type="button" class="fchip" data-cat="syrups" aria-pressed="false">Сиропы и&nbsp;эликсиры <span>4</span></button>
         <button type="button" class="fchip" data-cat="suppositories" aria-pressed="false">Суппозитории <span>23</span></button>
-        <button type="button" class="fchip" data-cat="tablets" aria-pressed="false">Таблетки и капсулы <span>1</span></button>
+        <button type="button" class="fchip" data-cat="tablets" aria-pressed="false">Таблетки и&nbsp;капсулы <span>1</span></button>
       </div>
     </div>
   </section>
@@ -58,39 +82,39 @@
     <div class="pgrid" id="pgrid">
       <a class="pcard" href="products/aevit.html" data-cat="tablets" data-q="аевит капсулы №20">
         <span class="pcard-media"><img src="img/products/aevit.webp" width="560" height="257" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Таблетки и капсулы</span>
+        <span class="pcard-cat">Таблетки и&nbsp;капсулы</span>
         <span class="pcard-name">Аевит</span>
         <span class="pcard-form">Капсулы №20</span>
       </a>
       <a class="pcard" href="products/akvacitramon.html" data-cat="powders" data-q="аквацитрамон гранулы для приготовления раствора для приема внутрь №5">
         <span class="pcard-media"><img src="img/products/akvacitramon.webp" width="560" height="487" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Порошки и гранулы</span>
+        <span class="pcard-cat">Порошки и&nbsp;гранулы</span>
         <span class="pcard-name">Аквацитрамон</span>
-        <span class="pcard-form">Гранулы для приготовления раствора для приема внутрь №5</span>
+        <span class="pcard-form">Гранулы для&nbsp;приготовления раствора для&nbsp;приема внутрь №5</span>
       </a>
       <a class="pcard" href="products/alfa-tokoferol.html" data-cat="solutions" data-q="альфа-токоферола ацетат раствор для приема внутрь (масляный) 100мг/мл 50мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v4l-3 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-3-3V3"/><path d="M7 14h10"/></svg></span></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Альфа-токоферола ацетат</span>
-        <span class="pcard-form">Раствор для приема внутрь (масляный) 100мг/мл 50мл</span>
+        <span class="pcard-form">Раствор для&nbsp;приема внутрь (масляный) 100мг/мл 50мл</span>
       </a>
       <a class="pcard" href="products/ambroksol.html" data-cat="solutions" data-q="амброксол раствор для приема внутрь и ингаляций 7,5мг/мл 40мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v4l-3 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-3-3V3"/><path d="M7 14h10"/></svg></span></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Амброксол</span>
-        <span class="pcard-form">Раствор для приема внутрь и ингаляций 7,5мг/мл 40мл</span>
+        <span class="pcard-form">Раствор для&nbsp;приема внутрь и&nbsp;ингаляций 7,5мг/мл 40мл</span>
       </a>
       <a class="pcard" href="products/ammiak.html" data-cat="solutions" data-q="аммиак раствор для наружного применения и ингаляций 10% 100мл">
         <span class="pcard-media"><img src="img/products/ammiak.webp" width="301" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Аммиак</span>
-        <span class="pcard-form">Раствор для наружного применения и ингаляций 10% 100мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения и&nbsp;ингаляций 10% 100мл</span>
       </a>
       <a class="pcard" href="products/amorolfin.html" data-cat="gels" data-q="аморолфин, лак лак для ногтей лекарственный 5% 2,5мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Аморолфин, лак</span>
-        <span class="pcard-form">Лак для ногтей лекарственный 5% 2,5мл</span>
+        <span class="pcard-form">Лак для&nbsp;ногтей лекарственный 5% 2,5мл</span>
       </a>
       <a class="pcard" href="products/anuzol.html" data-cat="suppositories" data-q="анузол суппозитории ректальные">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span></span>
@@ -106,45 +130,45 @@
       </a>
       <a class="pcard" href="products/aciklovir-krem-dla-naruznogo-primenenia-5.html" data-cat="gels" data-q="ацикловир, крем крем для наружного применения 5% 5г">
         <span class="pcard-media"><img src="img/products/aciklovir-krem-dla-naruznogo-primenenia-5.webp" width="560" height="164" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Ацикловир, крем</span>
-        <span class="pcard-form">Крем для наружного применения 5% 5г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного применения 5% 5г</span>
       </a>
       <a class="pcard" href="products/bacinecin.html" data-cat="powders" data-q="бацидерм порошок для наружного применения 250ме/г + 5000ме/г 10г">
         <span class="pcard-media"><img src="img/products/bacinecin.webp" width="326" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Порошки и гранулы</span>
+        <span class="pcard-cat">Порошки и&nbsp;гранулы</span>
         <span class="pcard-name">Бацидерм</span>
-        <span class="pcard-form">Порошок для наружного применения 250МЕ/г + 5000МЕ/г 10г</span>
+        <span class="pcard-form">Порошок для&nbsp;наружного применения 250МЕ/г + 5000МЕ/г 10г</span>
       </a>
       <a class="pcard" href="products/bacinecin-maz.html" data-cat="gels" data-q="бацидерм, мазь мазь для наружного применения 250ме/мг + 5000ме/мг 20г">
         <span class="pcard-media"><img src="img/products/bacinecin-maz.webp" width="560" height="136" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Бацидерм, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 250МЕ/мг + 5000МЕ/мг 20г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 250МЕ/мг + 5000МЕ/мг 20г</span>
       </a>
       <a class="pcard" href="products/benzilbenzoat-maz.html" data-cat="gels" data-q="бензилбензоат, мазь мазь для наружного применения 20% 25г">
         <span class="pcard-media"><img src="img/products/benzilbenzoat-maz.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Бензилбензоат, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 20% 25г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 20% 25г</span>
       </a>
       <a class="pcard" href="products/betanecin-krem.html" data-cat="gels" data-q="бетанецин крем для наружного применения 0,05% 15г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Бетанецин</span>
-        <span class="pcard-form">Крем для наружного применения 0,05% 15г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного применения 0,05% 15г</span>
       </a>
       <a class="pcard" href="products/betanecin-maz-161.html" data-cat="gels" data-q="бетанецин ск, мазь мазь для наружного применения 0,05% 15г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Бетанецин СК, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 0,05% 15г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 0,05% 15г</span>
       </a>
       <a class="pcard" href="products/betanecin-maz-285.html" data-cat="gels" data-q="бетанецин, мазь мазь для наружного применения 0,05% 15г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Бетанецин, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 0,05% 15г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 0,05% 15г</span>
       </a>
       <a class="pcard" href="products/bisakodil.html" data-cat="suppositories" data-q="бисакодил суппозитории ректальные 10мг №10">
         <span class="pcard-media"><img src="img/products/bisakodil.webp" width="560" height="337" loading="lazy" alt=""></span>
@@ -154,69 +178,69 @@
       </a>
       <a class="pcard" href="products/bom-benge.html" data-cat="gels" data-q="бом-бенге мазь для наружного применения 25г">
         <span class="pcard-media"><img src="img/products/bom-benge.webp" width="262" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Бом-бенге</span>
-        <span class="pcard-form">Мазь для наружного применения 25г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 25г</span>
       </a>
       <a class="pcard" href="products/brilliantovyj-zelenyj.html" data-cat="solutions" data-q="бриллиантовый зеленый раствор для наружного применения спиртовой 1% 25мл">
         <span class="pcard-media"><img src="img/products/brilliantovyj-zelenyj.webp" width="333" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Бриллиантовый зеленый</span>
-        <span class="pcard-form">Раствор для наружного применения спиртовой 1% 25мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения спиртовой 1% 25мл</span>
       </a>
       <a class="pcard" href="products/bromgeksin-solutions.html" data-cat="solutions" data-q="бромгексин раствор для приема внутрь 4мг/5мл 60мл">
         <span class="pcard-media"><img src="img/products/bromgeksin-solutions.webp" width="277" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Бромгексин</span>
-        <span class="pcard-form">Раствор для приема внутрь 4мг/5мл 60мл</span>
+        <span class="pcard-form">Раствор для&nbsp;приема внутрь 4мг/5мл 60мл</span>
       </a>
       <a class="pcard" href="products/bromgeksin-drops.html" data-cat="drops" data-q="бромгексин капли для приема внутрь 8мг/мл 20мл">
         <span class="pcard-media"><img src="img/products/bromgeksin-drops.webp" width="293" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Бромгексин</span>
-        <span class="pcard-form">Капли для приема внутрь 8мг/мл 20мл</span>
+        <span class="pcard-form">Капли для&nbsp;приема внутрь 8мг/мл 20мл</span>
       </a>
       <a class="pcard" href="products/valeriany-nastojka.html" data-cat="tinctures" data-q="валерианы настойка валерианы лекарственной корневища с корнями настойка 25мл">
         <span class="pcard-media"><img src="img/products/valeriany-nastojka.webp" width="333" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Валерианы настойка</span>
-        <span class="pcard-form">Валерианы лекарственной корневища с корнями настойка 25мл</span>
+        <span class="pcard-form">Валерианы лекарственной корневища с&nbsp;корнями настойка 25мл</span>
       </a>
       <a class="pcard" href="products/vinilin-balzam.html" data-cat="solutions" data-q="винилин бальзам бальзам (бальзам шостаковского) 50г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v4l-3 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-3-3V3"/><path d="M7 14h10"/></svg></span></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Винилин бальзам</span>
         <span class="pcard-form">Бальзам (бальзам Шостаковского) 50г</span>
       </a>
       <a class="pcard" href="products/galmanin.html" data-cat="powders" data-q="гальманин порошок для наружного применения 2г №10">
         <span class="pcard-media"><img src="img/products/galmanin.webp" width="560" height="487" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Порошки и гранулы</span>
+        <span class="pcard-cat">Порошки и&nbsp;гранулы</span>
         <span class="pcard-name">Гальманин</span>
-        <span class="pcard-form">Порошок для наружного применения 2г №10</span>
+        <span class="pcard-form">Порошок для&nbsp;наружного применения 2г №10</span>
       </a>
       <a class="pcard" href="products/gepaksid-gel.html" data-cat="gels" data-q="гепаксид гель гель для наружного применения, 500 ме/г+25 мг/г+150 мг/г.">
         <span class="pcard-media"><img src="img/products/gepaksid-gel.webp" width="560" height="137" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Гепаксид гель</span>
-        <span class="pcard-form">Гель для наружного применения, 500 МЕ/г+25 мг/г+150 мг/г.</span>
+        <span class="pcard-form">Гель для&nbsp;наружного применения, 500&nbsp;МЕ/г+25&nbsp;мг/г+150&nbsp;мг/г.</span>
       </a>
       <a class="pcard" href="products/geparin-natria-gel-dla-naruznogo-primenenia-1000-me-g.html" data-cat="gels" data-q="гепарин натрия, гель гель для наружного применения 1000ме/г 30г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Гепарин натрия, гель</span>
-        <span class="pcard-form">Гель для наружного применения 1000МЕ/г 30г</span>
+        <span class="pcard-form">Гель для&nbsp;наружного применения 1000МЕ/г 30г</span>
       </a>
       <a class="pcard" href="products/geparinovaa-maz.html" data-cat="gels" data-q="гепариновая мазь мазь для наружного применения 25г">
         <span class="pcard-media"><img src="img/products/geparinovaa-maz.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Гепариновая мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 25г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 25г</span>
       </a>
       <a class="pcard" href="products/gidrokortizon-maz.html" data-cat="gels" data-q="гидрокортизон, мазь мазь для наружного применения 1% 15г">
         <span class="pcard-media"><img src="img/products/gidrokortizon-maz.webp" width="560" height="128" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Гидрокортизон, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 1% 15г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 1% 15г</span>
       </a>
       <a class="pcard" href="products/glicerin.html" data-cat="suppositories" data-q="глицерин глицерин суппозитории ректальные 1,24г №10">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span></span>
@@ -226,39 +250,39 @@
       </a>
       <a class="pcard" href="products/gutaflos.html" data-cat="drops" data-q="гутафлос капли для приема внутрь 7мг/мл 15мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Гутафлос</span>
-        <span class="pcard-form">Капли для приема внутрь 7мг/мл 15мл</span>
+        <span class="pcard-form">Капли для&nbsp;приема внутрь 7мг/мл 15мл</span>
       </a>
       <a class="pcard" href="products/gevkamen-maz.html" data-cat="gels" data-q="гэвкамен, мазь мазь для наружного применения 25г">
         <span class="pcard-media"><img src="img/products/gevkamen-maz.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Гэвкамен, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 25г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 25г</span>
       </a>
       <a class="pcard" href="products/dekspantenol-maz.html" data-cat="gels" data-q="декспантенол, мазь мазь для наружного применения 5% 25г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Декспантенол, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 5% 25г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 5% 25г</span>
       </a>
       <a class="pcard" href="products/vibronorm.html" data-cat="drops" data-q="демефецил капли назальные 0,25мг/мл+2,5мг/мл 15мл">
         <span class="pcard-media"><img src="img/products/vibronorm.webp" width="247" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Демефецил</span>
         <span class="pcard-form">Капли назальные 0,25мг/мл+2,5мг/мл 15мл</span>
       </a>
       <a class="pcard" href="products/dentesgel.html" data-cat="gels" data-q="дентесгель ">
         <span class="pcard-media"><img src="img/products/dentesgel.webp" width="560" height="184" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Дентесгель</span>
         <span class="pcard-form"></span>
       </a>
       <a class="pcard" href="products/derma-kap-krem.html" data-cat="gels" data-q="дерма-кап, крем крем для наружного применения 0,2% 25г">
         <span class="pcard-media"><img src="img/products/derma-kap-krem.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Дерма-кап, крем</span>
-        <span class="pcard-form">Крем для наружного применения 0,2% 25г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного применения 0,2% 25г</span>
       </a>
       <a class="pcard" href="products/diklofenak.html" data-cat="suppositories" data-q="диклофенак суппозитории ректальные 50мг №10">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span></span>
@@ -268,37 +292,37 @@
       </a>
       <a class="pcard" href="products/diklofenak-gel-dla-naruznogo-primenenia-1.html" data-cat="gels" data-q="диклофенак, гель гель для наружного применения 1% 30г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Диклофенак, гель</span>
-        <span class="pcard-form">Гель для наружного применения 1% 30г</span>
+        <span class="pcard-form">Гель для&nbsp;наружного применения 1% 30г</span>
       </a>
       <a class="pcard" href="products/dimeksid.html" data-cat="solutions" data-q="димексид концентрат для приготовления раствора для наружного применения 99% 100мл">
         <span class="pcard-media"><img src="img/products/dimeksid.webp" width="300" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Димексид</span>
-        <span class="pcard-form">Концентрат для приготовления раствора для наружного применения 99% 100мл</span>
+        <span class="pcard-form">Концентрат для&nbsp;приготовления раствора для&nbsp;наружного применения 99% 100мл</span>
       </a>
       <a class="pcard" href="products/zensena-nastojka.html" data-cat="tinctures" data-q="женьшеня настойка женьшеня настойка 25мл">
         <span class="pcard-media"><img src="img/products/zensena-nastojka.webp" width="328" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Женьшеня настойка</span>
         <span class="pcard-form">Женьшеня настойка 25мл</span>
       </a>
       <a class="pcard" href="products/zidkost-dla-ruk.html" data-cat="solutions" data-q="жидкость для рук раствор для наружного применения спиртовой 80мл">
         <span class="pcard-media"><img src="img/products/zidkost-dla-ruk.webp" width="251" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
-        <span class="pcard-name">Жидкость для рук</span>
-        <span class="pcard-form">Раствор для наружного применения спиртовой 80мл</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
+        <span class="pcard-name">Жидкость для&nbsp;рук</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения спиртовой 80мл</span>
       </a>
       <a class="pcard" href="products/zineriderm.html" data-cat="powders" data-q="зинеридерм порошок для приготовления раствора для наружного применения">
         <span class="pcard-media"><img src="img/products/zineriderm.webp" width="355" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Порошки и гранулы</span>
+        <span class="pcard-cat">Порошки и&nbsp;гранулы</span>
         <span class="pcard-name">Зинеридерм</span>
-        <span class="pcard-form">Порошок для приготовления раствора для наружного применения</span>
+        <span class="pcard-form">Порошок для&nbsp;приготовления раствора для&nbsp;наружного применения</span>
       </a>
       <a class="pcard" href="products/zubnye-kapli.html" data-cat="drops" data-q="зубные капли капли зубные 10мл">
         <span class="pcard-media"><img src="img/products/zubnye-kapli.webp" width="289" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Зубные капли</span>
         <span class="pcard-form">Капли зубные 10мл</span>
       </a>
@@ -322,37 +346,37 @@
       </a>
       <a class="pcard" href="products/jovidoks-gels.html" data-cat="gels" data-q="йовидокс мазь для наружного применения 10% 20г">
         <span class="pcard-media"><img src="img/products/jovidoks-gels.webp" width="560" height="137" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Йовидокс</span>
-        <span class="pcard-form">Мазь для наружного применения 10% 20г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 10% 20г</span>
       </a>
       <a class="pcard" href="products/jodinol.html" data-cat="solutions" data-q="йодинол раствор для местного и наружного применения (с насадкой-распылителем) 50мл">
         <span class="pcard-media"><img src="img/products/jodinol.webp" width="251" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Йодинол</span>
-        <span class="pcard-form">Раствор для местного и наружного применения (с насадкой-распылителем) 50мл</span>
+        <span class="pcard-form">Раствор для&nbsp;местного и&nbsp;наружного применения (с&nbsp;насадкой-распылителем) 50мл</span>
       </a>
       <a class="pcard" href="products/kalenduly-nastojka.html" data-cat="tinctures" data-q="календулы настойка календулы лекарственной цветков настойка 25мл">
         <span class="pcard-media"><img src="img/products/kalenduly-nastojka.webp" width="328" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Календулы настойка</span>
         <span class="pcard-form">Календулы лекарственной цветков настойка 25мл</span>
       </a>
       <a class="pcard" href="products/kamfornoe-maslo-rastvor.html" data-cat="solutions" data-q="камфорное масло, раствор раствор для наружного применения масляный 10% 30мл">
         <span class="pcard-media"><img src="img/products/kamfornoe-maslo-rastvor.webp" width="329" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Камфорное масло, раствор</span>
-        <span class="pcard-form">Раствор для наружного применения масляный 10% 30мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения масляный 10% 30мл</span>
       </a>
       <a class="pcard" href="products/spirt-kamfornyj.html" data-cat="solutions" data-q="камфорный спирт раствор для наружного применения спиртовой 10% 40мл">
         <span class="pcard-media"><img src="img/products/spirt-kamfornyj.webp" width="338" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Камфорный спирт</span>
-        <span class="pcard-form">Раствор для наружного применения спиртовой 10% 40мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения спиртовой 10% 40мл</span>
       </a>
       <a class="pcard" href="products/kastorovoe-maslo.html" data-cat="tinctures" data-q="касторовое масло клещевины обыкновенной семян масло 30мл">
         <span class="pcard-media"><img src="img/products/kastorovoe-maslo.webp" width="335" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Касторовое масло</span>
         <span class="pcard-form">Клещевины обыкновенной семян масло 30мл</span>
       </a>
@@ -360,13 +384,13 @@
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span></span>
         <span class="pcard-cat">Суппозитории</span>
         <span class="pcard-name">Кетоконазол</span>
-        <span class="pcard-form">Суппозитории вагинальные 400мг, № 5</span>
+        <span class="pcard-form">Суппозитории вагинальные 400мг, №&nbsp;5</span>
       </a>
       <a class="pcard" href="products/ketoprofen-solutions.html" data-cat="solutions" data-q="кетопрофен раствор для полоскания 16мг/мл 150мл">
         <span class="pcard-media"><img src="img/products/ketoprofen-solutions.webp" width="277" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Кетопрофен</span>
-        <span class="pcard-form">Раствор для полоскания 16мг/мл 150мл</span>
+        <span class="pcard-form">Раствор для&nbsp;полоскания 16мг/мл 150мл</span>
       </a>
       <a class="pcard" href="products/ketoprofen-suppositories.html" data-cat="suppositories" data-q="кетопрофен суппозитории ректальные 100мг №10">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span></span>
@@ -376,45 +400,45 @@
       </a>
       <a class="pcard" href="products/ketoprofen-gel-dla-naruznogo-primenenia-25.html" data-cat="gels" data-q="кетопрофен, гель гель для наружного применения 2,5% 30г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Кетопрофен, гель</span>
-        <span class="pcard-form">Гель для наружного применения 2,5% 30г</span>
+        <span class="pcard-form">Гель для&nbsp;наружного применения 2,5% 30г</span>
       </a>
       <a class="pcard" href="products/klej-bf-6.html" data-cat="solutions" data-q="клей бф-6 раствор для наружного применения [спиртовой] 10г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v4l-3 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-3-3V3"/><path d="M7 14h10"/></svg></span></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Клей бф-6</span>
-        <span class="pcard-form">Раствор для наружного применения [спиртовой] 10г</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения [спиртовой] 10г</span>
       </a>
       <a class="pcard" href="products/klindagel-gel-dla-naruznogo-primenenia-1.html" data-cat="gels" data-q="клиндагель, гель гель для наружного применения 1% 15г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Клиндагель, гель</span>
-        <span class="pcard-form">Гель для наружного применения 1% 15г</span>
+        <span class="pcard-form">Гель для&nbsp;наружного применения 1% 15г</span>
       </a>
       <a class="pcard" href="products/klindamaks.html" data-cat="solutions" data-q="клиндамакс раствор для наружного применения 10мг/мл 30мл">
         <span class="pcard-media"><img src="img/products/klindamaks.webp" width="304" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Клиндамакс</span>
-        <span class="pcard-form">Раствор для наружного применения 10мг/мл 30мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения 10мг/мл 30мл</span>
       </a>
       <a class="pcard" href="products/klotrimazol-gels.html" data-cat="gels" data-q="клотримазол крем для наружного применения 1% 20г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Клотримазол</span>
-        <span class="pcard-form">Крем для наружного применения 1% 20г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного применения 1% 20г</span>
       </a>
       <a class="pcard" href="products/klotrimazol-solutions.html" data-cat="solutions" data-q="клотримазол раствор для наружного применения 1% 10мл">
         <span class="pcard-media"><img src="img/products/klotrimazol-solutions.webp" width="293" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Клотримазол</span>
-        <span class="pcard-form">Раствор для наружного применения 1% 10мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения 1% 10мл</span>
       </a>
       <a class="pcard" href="products/kordiamin.html" data-cat="drops" data-q="кордиамин капли для приема внутрь 250мг/мл 30мл">
         <span class="pcard-media"><img src="img/products/kordiamin.webp" width="293" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Кордиамин</span>
-        <span class="pcard-form">Капли для приема внутрь 250мг/мл 30мл</span>
+        <span class="pcard-form">Капли для&nbsp;приема внутрь 250мг/мл 30мл</span>
       </a>
       <a class="pcard" href="products/krasavki-ekstrakt.html" data-cat="suppositories" data-q="красавки экстракт суппозитории ректальные 15мг №10">
         <span class="pcard-media"><img src="img/products/krasavki-ekstrakt.webp" width="560" height="355" loading="lazy" alt=""></span>
@@ -424,45 +448,45 @@
       </a>
       <a class="pcard" href="products/ksilometazolin.html" data-cat="drops" data-q="ксилометазолин спрей нахальный 0,05% 20мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Ксилометазолин</span>
         <span class="pcard-form">Спрей нахальный 0,05% 20мл</span>
       </a>
       <a class="pcard" href="products/levomikon-tff.html" data-cat="gels" data-q="левомикон -тфф мазь для наружного применения 40г">
         <span class="pcard-media"><img src="img/products/levomikon-tff.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Левомикон -ТФФ</span>
-        <span class="pcard-form">Мазь для наружного применения 40г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 40г</span>
       </a>
       <a class="pcard" href="products/levomicetin.html" data-cat="solutions" data-q="левомицетин раствор для наружного применения спиртовой 1% 25мл">
         <span class="pcard-media"><img src="img/products/levomicetin.webp" width="247" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Левомицетин</span>
-        <span class="pcard-form">Раствор для наружного применения спиртовой 1% 25мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения спиртовой 1% 25мл</span>
       </a>
       <a class="pcard" href="products/lidokain.html" data-cat="drops" data-q="лидокаин спрей для местного и наружного применения дозированный 4,6мг/доза 650доз">
         <span class="pcard-media"><img src="img/products/lidokain.webp" width="308" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Лидокаин</span>
-        <span class="pcard-form">Спрей для местного и наружного применения дозированный 4,6мг/доза 650доз</span>
+        <span class="pcard-form">Спрей для&nbsp;местного и&nbsp;наружного применения дозированный 4,6мг/доза 650доз</span>
       </a>
       <a class="pcard" href="products/limonnika-seman-nastojka.html" data-cat="tinctures" data-q="лимонника семян настойка лимонника китайского семян настойка 25мл">
         <span class="pcard-media"><img src="img/products/limonnika-seman-nastojka.webp" width="333" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Лимонника семян настойка</span>
         <span class="pcard-form">Лимонника китайского семян настойка 25мл</span>
       </a>
       <a class="pcard" href="products/liniment-balzamiceskij.html" data-cat="gels" data-q="линимент бальзамический линимент (по вишневскому) 30г">
         <span class="pcard-media"><img src="img/products/liniment-balzamiceskij.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Линимент бальзамический</span>
-        <span class="pcard-form">Линимент (по Вишневскому) 30г</span>
+        <span class="pcard-form">Линимент (по&nbsp;Вишневскому) 30г</span>
       </a>
       <a class="pcard" href="products/lugola-rastvor-s-glicerinom.html" data-cat="solutions" data-q="люголя раствор с глицерином раствор для местного применения (с насадкой-распылителем) 25г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v4l-3 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-3-3V3"/><path d="M7 14h10"/></svg></span></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
-        <span class="pcard-name">Люголя раствор с глицерином</span>
-        <span class="pcard-form">Раствор для местного применения (с насадкой-распылителем) 25г</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
+        <span class="pcard-name">Люголя раствор с&nbsp;глицерином</span>
+        <span class="pcard-form">Раствор для&nbsp;местного применения (с&nbsp;насадкой-распылителем) 25г</span>
       </a>
       <a class="pcard" href="products/metiluracil.html" data-cat="suppositories" data-q="метилурацил суппозитории ректальные 500мг №10">
         <span class="pcard-media"><img src="img/products/metiluracil.webp" width="560" height="344" loading="lazy" alt=""></span>
@@ -472,37 +496,37 @@
       </a>
       <a class="pcard" href="products/metiluracil-maz.html" data-cat="gels" data-q="метилурацил, мазь мазь для местного и наружного применения 10% 25г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Метилурацил, мазь</span>
-        <span class="pcard-form">Мазь для местного и наружного применения 10% 25г</span>
+        <span class="pcard-form">Мазь для&nbsp;местного и&nbsp;наружного применения 10% 25г</span>
       </a>
       <a class="pcard" href="products/metroksidin-denta-gel-stomatologiceskij-1-005.html" data-cat="gels" data-q="метроксидин дента, гель гель стоматологический 1% + 0,05% 20г">
         <span class="pcard-media"><img src="img/products/metroksidin-denta-gel-stomatologiceskij-1-005.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Метроксидин дента, гель</span>
         <span class="pcard-form">Гель стоматологический 1% + 0,05% 20г</span>
       </a>
       <a class="pcard" href="products/mikoflos.html" data-cat="powders" data-q="микофлос порошок для приготовления суспензии для приема внутрь (апельсиновый) 5г">
         <span class="pcard-media"><img src="img/products/mikoflos.webp" width="560" height="449" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Порошки и гранулы</span>
+        <span class="pcard-cat">Порошки и&nbsp;гранулы</span>
         <span class="pcard-name">Микофлос</span>
-        <span class="pcard-form">Порошок для приготовления суспензии для приема внутрь (апельсиновый) 5г</span>
+        <span class="pcard-form">Порошок для&nbsp;приготовления суспензии для&nbsp;приема внутрь (апельсиновый) 5г</span>
       </a>
       <a class="pcard" href="products/mometazon-254.html" data-cat="gels" data-q="мометазон крем для наружного применения 0,1% 15г">
         <span class="pcard-media"><img src="img/products/mometazon-254.webp" width="560" height="128" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Мометазон</span>
-        <span class="pcard-form">Крем для наружного применения 0,1% 15г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного применения 0,1% 15г</span>
       </a>
       <a class="pcard" href="products/mometazon-255.html" data-cat="gels" data-q="мометазон мазь для наружного применения 0,1% 15г">
         <span class="pcard-media"><img src="img/products/mometazon-255.webp" width="560" height="128" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Мометазон</span>
-        <span class="pcard-form">Мазь для наружного применения 0,1% 15г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 0,1% 15г</span>
       </a>
       <a class="pcard" href="products/maty-perecnoj-nastojka.html" data-cat="tinctures" data-q="мяты перечной настойка мяты перечной настойка 25мл">
         <span class="pcard-media"><img src="img/products/maty-perecnoj-nastojka.webp" width="333" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Мяты перечной настойка</span>
         <span class="pcard-form">Мяты перечной настойка 25мл</span>
       </a>
@@ -514,15 +538,15 @@
       </a>
       <a class="pcard" href="products/naftifin.html" data-cat="solutions" data-q="нафтифин раствор для наружного применения 1% 10мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v4l-3 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-3-3V3"/><path d="M7 14h10"/></svg></span></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Нафтифин</span>
-        <span class="pcard-form">Раствор для наружного применения 1% 10мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения 1% 10мл</span>
       </a>
       <a class="pcard" href="products/naftifin-krem-dla-naruznogo-primenenia-1.html" data-cat="gels" data-q="нафтифин, крем крем для наружного применения 1% 15г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Нафтифин, крем</span>
-        <span class="pcard-form">Крем для наружного применения 1% 15г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного применения 1% 15г</span>
       </a>
       <a class="pcard" href="products/nistatin.html" data-cat="suppositories" data-q="нистатин суппозитории вагинальные 250000ед №10">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span></span>
@@ -538,15 +562,15 @@
       </a>
       <a class="pcard" href="products/nurofaktor.html" data-cat="syrups" data-q="нурофактор ибупрофен 100мг/5мл 100мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2h4v4l2 2v12a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8l2-2z"/><path d="M8 13h8"/></svg></span></span>
-        <span class="pcard-cat">Сиропы и эликсиры</span>
+        <span class="pcard-cat">Сиропы и&nbsp;эликсиры</span>
         <span class="pcard-name">Нурофактор</span>
         <span class="pcard-form">Ибупрофен 100мг/5мл 100мл</span>
       </a>
       <a class="pcard" href="products/nurofaktor-gel-dla-naruznogo-primenenia-5.html" data-cat="gels" data-q="нурофактор, гель гель для наружного применения 5% 50г">
         <span class="pcard-media"><img src="img/products/nurofaktor-gel-dla-naruznogo-primenenia-5.webp" width="560" height="137" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Нурофактор, гель</span>
-        <span class="pcard-form">Гель для наружного применения 5% 50г</span>
+        <span class="pcard-form">Гель для&nbsp;наружного применения 5% 50г</span>
       </a>
       <a class="pcard" href="products/oblepihovoe-maslo-suppositories.html" data-cat="suppositories" data-q="облепиховое масло суппозитории ректальные 500мг №10">
         <span class="pcard-media"><img src="img/products/oblepihovoe-maslo-suppositories.webp" width="560" height="354" loading="lazy" alt=""></span>
@@ -556,39 +580,39 @@
       </a>
       <a class="pcard" href="products/oblepihovoe-maslo-tinctures.html" data-cat="tinctures" data-q="облепиховое масло масло для приема внутрь, местного и наружного применения 50мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21c-4-2-7-6-7-11 4 0 7 2 7 6 0-4 3-6 7-6 0 5-3 9-7 11z"/><path d="M12 16V8"/></svg></span></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Облепиховое масло</span>
-        <span class="pcard-form">Масло для приема внутрь, местного и наружного применения 50мл</span>
+        <span class="pcard-form">Масло для&nbsp;приема внутрь, местного и&nbsp;наружного применения 50мл</span>
       </a>
       <a class="pcard" href="products/oksolin-maz.html" data-cat="gels" data-q="оксолин, мазь мазь назальная 0,25% 10г">
         <span class="pcard-media"><img src="img/products/oksolin-maz.webp" width="560" height="143" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Оксолин, мазь</span>
         <span class="pcard-form">Мазь назальная 0,25% 10г</span>
       </a>
       <a class="pcard" href="products/oksolin-maz-3.html" data-cat="gels" data-q="оксолин, мазь 3% мазь назальная 3% 10г">
         <span class="pcard-media"><img src="img/products/oksolin-maz-3.webp" width="560" height="143" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Оксолин, мазь 3%</span>
         <span class="pcard-form">Мазь назальная 3% 10г</span>
       </a>
       <a class="pcard" href="products/otilor-kapli.html" data-cat="drops" data-q="отилор, капли капли ушные лидокаин 10мг/г + феназон 40мг/г 16г">
         <span class="pcard-media"><img src="img/products/otilor-kapli.webp" width="359" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Отилор, капли</span>
         <span class="pcard-form">Капли ушные Лидокаин 10мг/г + Феназон 40мг/г 16г</span>
       </a>
       <a class="pcard" href="products/pantesept-plus-krem-dla-naruznogo-primenenia-5-05.html" data-cat="gels" data-q="пантесепт плюс, крем крем для наружного применения 5% + 0,5% 30г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Пантесепт плюс, крем</span>
-        <span class="pcard-form">Крем для наружного применения 5% + 0,5% 30г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного применения 5% + 0,5% 30г</span>
       </a>
       <a class="pcard" href="products/pantesept-krem-dla-naruznogo-primenenia-5.html" data-cat="gels" data-q="пантесепт, крем крем для наружного применения 5% 30г">
         <span class="pcard-media"><img src="img/products/pantesept-krem-dla-naruznogo-primenenia-5.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Пантесепт, крем</span>
-        <span class="pcard-form">Крем для наружного применения 5% 30г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного применения 5% 30г</span>
       </a>
       <a class="pcard" href="products/paracetamol-detskij.html" data-cat="suppositories" data-q="парацетамол детский суппозитории ректальные 50мг №10">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span></span>
@@ -604,25 +628,25 @@
       </a>
       <a class="pcard" href="products/perca-struckovogo-nastojka.html" data-cat="tinctures" data-q="перца стручкового настойка перца стручкового плодов настойка 25мл">
         <span class="pcard-media"><img src="img/products/perca-struckovogo-nastojka.webp" width="333" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Перца стручкового настойка</span>
         <span class="pcard-form">Перца стручкового плодов настойка 25мл</span>
       </a>
       <a class="pcard" href="products/piona-nastojka.html" data-cat="tinctures" data-q="пиона настойка настойка пиона уклоняющегося трава, корневища и корни 25мл">
         <span class="pcard-media"><img src="img/products/piona-nastojka.webp" width="335" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Пиона настойка</span>
-        <span class="pcard-form">Настойка пиона уклоняющегося трава, корневища и корни 25мл</span>
+        <span class="pcard-form">Настойка пиона уклоняющегося трава, корневища и&nbsp;корни 25мл</span>
       </a>
       <a class="pcard" href="products/povidon-jod.html" data-cat="solutions" data-q="повидон-йод раствор для наружного и местного применения 10% 30мл">
         <span class="pcard-media"><img src="img/products/povidon-jod.webp" width="267" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Повидон-йод</span>
-        <span class="pcard-form">Раствор для наружного и местного применения 10% 30мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного и&nbsp;местного применения 10% 30мл</span>
       </a>
       <a class="pcard" href="products/polyni-nastojka.html" data-cat="tinctures" data-q="полыни настойка полыни горькой травы настойка 25мл">
         <span class="pcard-media"><img src="img/products/polyni-nastojka.webp" width="335" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Полыни настойка</span>
         <span class="pcard-form">Полыни горькой травы настойка 25мл</span>
       </a>
@@ -634,9 +658,9 @@
       </a>
       <a class="pcard" href="products/primacin-krem-dla-naruznogo-i-mestnogo-primenenia-2.html" data-cat="gels" data-q="примацин, крем крем для наружного и местного применения 2% 30г">
         <span class="pcard-media"><img src="img/products/primacin-krem-dla-naruznogo-i-mestnogo-primenenia-2.webp" width="560" height="150" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Примацин, крем</span>
-        <span class="pcard-form">Крем для наружного и местного применения 2% 30г</span>
+        <span class="pcard-form">Крем для&nbsp;наружного и&nbsp;местного применения 2% 30г</span>
       </a>
       <a class="pcard" href="products/proktostezol.html" data-cat="suppositories" data-q="проктостезол суппозитории ректальные 100мг №10">
         <span class="pcard-media"><img src="img/products/proktostezol.webp" width="560" height="353" loading="lazy" alt=""></span>
@@ -646,31 +670,31 @@
       </a>
       <a class="pcard" href="products/propolisa-nastojka.html" data-cat="tinctures" data-q="прополиса настойка прополиса настойка 25мл">
         <span class="pcard-media"><img src="img/products/propolisa-nastojka.webp" width="330" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Прополиса настойка</span>
         <span class="pcard-form">Прополиса настойка 25мл</span>
       </a>
       <a class="pcard" href="products/pustyrnika-nastojka.html" data-cat="tinctures" data-q="пустырника настойка пустырника травы настойка 25мл">
         <span class="pcard-media"><img src="img/products/pustyrnika-nastojka.webp" width="335" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Пустырника настойка</span>
         <span class="pcard-form">Пустырника травы настойка 25мл</span>
       </a>
       <a class="pcard" href="products/rybij-zir-maslo.html" data-cat="tinctures" data-q="рыбий жир масло масло для приема внутрь 50мл">
         <span class="pcard-media"><img src="img/products/rybij-zir-maslo.webp" width="335" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Рыбий жир масло</span>
-        <span class="pcard-form">Масло для приема внутрь 50мл</span>
+        <span class="pcard-form">Масло для&nbsp;приема внутрь 50мл</span>
       </a>
       <a class="pcard" href="products/sinaflan-maz.html" data-cat="gels" data-q="синафлан, мазь мазь для наружного применения 0,025% 15г">
         <span class="pcard-media"><img src="img/products/sinaflan-maz.webp" width="560" height="128" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Синафлан, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 0,025% 15г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 0,025% 15г</span>
       </a>
       <a class="pcard" href="products/sintomicin-gels.html" data-cat="gels" data-q="синтомицин линимет 10% 25г">
         <span class="pcard-media"><img src="img/products/sintomicin-gels.webp" width="560" height="150" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Синтомицин</span>
         <span class="pcard-form">Линимет 10% 25г</span>
       </a>
@@ -682,45 +706,45 @@
       </a>
       <a class="pcard" href="products/sinusefrin.html" data-cat="drops" data-q="синусэфрин спрей назальный 15мл">
         <span class="pcard-media"><img src="img/products/sinusefrin.webp" width="247" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Синусэфрин</span>
         <span class="pcard-form">Спрей назальный 15мл</span>
       </a>
       <a class="pcard" href="products/skipidarnaa-maz.html" data-cat="gels" data-q="скипидарная мазь мазь для наружного применения 20% 25г">
         <span class="pcard-media"><img src="img/products/skipidarnaa-maz.webp" width="560" height="149" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Скипидарная мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 20% 25г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 20% 25г</span>
       </a>
       <a class="pcard" href="products/smes-dla-ingalacij.html" data-cat="solutions" data-q="смесь для ингаляций раствор для ингаляций 40мл">
         <span class="pcard-media"><img src="img/products/smes-dla-ingalacij.webp" width="342" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
-        <span class="pcard-name">Смесь для ингаляций</span>
-        <span class="pcard-form">Раствор для ингаляций 40мл</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
+        <span class="pcard-name">Смесь для&nbsp;ингаляций</span>
+        <span class="pcard-form">Раствор для&nbsp;ингаляций 40мл</span>
       </a>
       <a class="pcard" href="products/solodki-sirop.html" data-cat="syrups" data-q="солодки сироп солодки кортей экстракт (сироп) 100г">
         <span class="pcard-media"><img src="img/products/solodki-sirop.webp" width="302" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Сиропы и эликсиры</span>
+        <span class="pcard-cat">Сиропы и&nbsp;эликсиры</span>
         <span class="pcard-name">Солодки сироп</span>
         <span class="pcard-form">Солодки кортей экстракт (сироп) 100г</span>
       </a>
       <a class="pcard" href="products/tejmurova-pasta.html" data-cat="gels" data-q="теймурова паста паста для наружного применения 30г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Теймурова паста</span>
-        <span class="pcard-form">Паста для наружного применения 30г</span>
+        <span class="pcard-form">Паста для&nbsp;наружного применения 30г</span>
       </a>
       <a class="pcard" href="products/trokserutin-gel-dla-naruznogo-primenenia-2.html" data-cat="gels" data-q="троксерутин, гель гель для наружного применения 2% 30г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Троксерутин, гель</span>
-        <span class="pcard-form">Гель для наружного применения 2% 30г</span>
+        <span class="pcard-form">Гель для&nbsp;наружного применения 2% 30г</span>
       </a>
       <a class="pcard" href="products/felozilit-pasta.html" data-cat="gels" data-q="фелозилит, паста паста для приготовления суспензии для приема внутрь 100г">
         <span class="pcard-media"><img src="img/products/felozilit-pasta.webp" width="560" height="210" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Фелозилит, паста</span>
-        <span class="pcard-form">Паста для приготовления суспензии для приема внутрь 100г</span>
+        <span class="pcard-form">Паста для&nbsp;приготовления суспензии для&nbsp;приема внутрь 100г</span>
       </a>
       <a class="pcard" href="products/fenilefrin.html" data-cat="suppositories" data-q="фенилэфрин суппозитории ректальные 5мг №10суппозитории ректальные 5мг №12">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span></span>
@@ -730,27 +754,27 @@
       </a>
       <a class="pcard" href="products/fenicitol.html" data-cat="drops" data-q="феницитол капли для приема внутрь 1мг/мл 10мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Феницитол</span>
-        <span class="pcard-form">Капли для приема внутрь 1мг/мл 10мл</span>
+        <span class="pcard-form">Капли для&nbsp;приема внутрь 1мг/мл 10мл</span>
       </a>
       <a class="pcard" href="products/fenicitol-gel-dla-naruznogo-primenenia-01.html" data-cat="gels" data-q="феницитол, гель гель для наружного применения 0,1% 25г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Феницитол, гель</span>
-        <span class="pcard-form">Гель для наружного применения 0,1% 25г</span>
+        <span class="pcard-form">Гель для&nbsp;наружного применения 0,1% 25г</span>
       </a>
       <a class="pcard" href="products/fukorcin.html" data-cat="solutions" data-q="фукорцин раствор для наружного применения спиртовой 10мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v4l-3 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-3-3V3"/><path d="M7 14h10"/></svg></span></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Фукорцин</span>
-        <span class="pcard-form">Раствор для наружного применения спиртовой 10мл</span>
+        <span class="pcard-form">Раствор для&nbsp;наружного применения спиртовой 10мл</span>
       </a>
       <a class="pcard" href="products/furacilin.html" data-cat="solutions" data-q="фурацилин раствор для местного и наружного применения (спиртовой), 0,067%">
         <span class="pcard-media"><img src="img/products/furacilin.webp" width="293" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Фурацилин</span>
-        <span class="pcard-form">Раствор для местного и наружного применения (спиртовой), 0,067%</span>
+        <span class="pcard-form">Раствор для&nbsp;местного и&nbsp;наружного применения (спиртовой), 0,067%</span>
       </a>
       <a class="pcard" href="products/hlorgeksidin.html" data-cat="suppositories" data-q="хлоргексидин суппозитории вагинальные 16мг №10">
         <span class="pcard-media"><img src="img/products/hlorgeksidin.webp" width="560" height="343" loading="lazy" alt=""></span>
@@ -760,56 +784,56 @@
       </a>
       <a class="pcard" href="products/hlorofillong.html" data-cat="solutions" data-q="хлорофиллонг раствор для приема внутрь и местного применения спиртовой 50мл">
         <span class="pcard-media"><img src="img/products/hlorofillong.webp" width="315" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Бальзамы, растворы и концентраты</span>
+        <span class="pcard-cat">Бальзамы, растворы и&nbsp;концентраты</span>
         <span class="pcard-name">Хлорофиллонг</span>
-        <span class="pcard-form">Раствор для приема внутрь и местного применения спиртовой 50мл</span>
+        <span class="pcard-form">Раствор для&nbsp;приема внутрь и&nbsp;местного применения спиртовой 50мл</span>
       </a>
       <a class="pcard" href="products/hondroitin.html" data-cat="gels" data-q="хондроитин, мазь мазь для наружного применения 5% 30г">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span></span>
-        <span class="pcard-cat">Гели, крема, мази и пасты</span>
+        <span class="pcard-cat">Гели, крема, мази и&nbsp;пасты</span>
         <span class="pcard-name">Хондроитин, мазь</span>
-        <span class="pcard-form">Мазь для наружного применения 5% 30г</span>
+        <span class="pcard-form">Мазь для&nbsp;наружного применения 5% 30г</span>
       </a>
       <a class="pcard" href="products/cetirizin.html" data-cat="drops" data-q="цетиризин капли для приема внутрь 10мг/мл 10мл">
         <span class="pcard-media empty"><span class="ph-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span></span>
-        <span class="pcard-cat">Капли и спреи</span>
+        <span class="pcard-cat">Капли и&nbsp;спреи</span>
         <span class="pcard-name">Цетиризин</span>
-        <span class="pcard-form">Капли для приема внутрь 10мг/мл 10мл</span>
+        <span class="pcard-form">Капли для&nbsp;приема внутрь 10мг/мл 10мл</span>
       </a>
       <a class="pcard" href="products/cindol-suspenzia.html" data-cat="syrups" data-q="циндол суспензия суспензия для наружного применения 12,5% 125г">
         <span class="pcard-media"><img src="img/products/cindol-suspenzia.webp" width="302" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Сиропы и эликсиры</span>
+        <span class="pcard-cat">Сиропы и&nbsp;эликсиры</span>
         <span class="pcard-name">Циндол суспензия</span>
-        <span class="pcard-form">Суспензия для наружного применения 12,5% 125г</span>
+        <span class="pcard-form">Суспензия для&nbsp;наружного применения 12,5% 125г</span>
       </a>
       <a class="pcard" href="products/evkalipta-nastojka.html" data-cat="tinctures" data-q="эвкалипта настойка эвкалипта настойка 25мл">
         <span class="pcard-media"><img src="img/products/evkalipta-nastojka.webp" width="335" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Эвкалипта настойка</span>
         <span class="pcard-form">Эвкалипта настойка 25мл</span>
       </a>
       <a class="pcard" href="products/eleuterokokka-ekstrakt.html" data-cat="tinctures" data-q="элеутерококка экстракт экстракт для приема внутрь жидкий 50мл">
         <span class="pcard-media"><img src="img/products/eleuterokokka-ekstrakt.webp" width="342" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Элеутерококка экстракт</span>
-        <span class="pcard-form">Экстракт для приема внутрь жидкий 50мл</span>
+        <span class="pcard-form">Экстракт для&nbsp;приема внутрь жидкий 50мл</span>
       </a>
       <a class="pcard" href="products/eritadin.html" data-cat="syrups" data-q="эритадин эритадин сироп 0,5мг/мл 60мл">
         <span class="pcard-media"><img src="img/products/eritadin.webp" width="277" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Сиропы и эликсиры</span>
+        <span class="pcard-cat">Сиропы и&nbsp;эликсиры</span>
         <span class="pcard-name">Эритадин</span>
         <span class="pcard-form">Эритадин сироп 0,5мг/мл 60мл</span>
       </a>
       <a class="pcard" href="products/ehinacei-nastojka.html" data-cat="tinctures" data-q="эхинацеи настойка эхинацеи настойка 50мл">
         <span class="pcard-media"><img src="img/products/ehinacei-nastojka.webp" width="342" height="560" loading="lazy" alt=""></span>
-        <span class="pcard-cat">Настойки, экстракты и масла</span>
+        <span class="pcard-cat">Настойки, экстракты и&nbsp;масла</span>
         <span class="pcard-name">Эхинацеи настойка</span>
         <span class="pcard-form">Эхинацеи настойка 50мл</span>
       </a>
     </div>
     <div class="empty-state" id="empty" hidden>
-      <b>Ничего не найдено</b>
-      <p>Попробуйте другое название или выберите другую группу.</p>
+      <b>Ничего не&nbsp;найдено</b>
+      <p>Попробуйте другое название или&nbsp;выберите другую группу.</p>
       <button type="button" class="btn ghost" id="reset">Сбросить фильтры</button>
     </div>
   </section>
@@ -848,11 +872,12 @@
       </div>
       <div>
         <b>Фармаконадзор</b>
-        <p>Сообщить о нежелательной реакции: <a href="tel:88007778604">8-800-777-86-04</a> (бесплатно) или <a href="https://drugsafety.ru/report" target="_blank" rel="noopener">drugsafety.ru/report</a></p>
+        <p>Сообщить о&nbsp;нежелательной реакции: <a href="tel:88007778604">8-800-777-86-04</a> (бесплатно) или&nbsp;<a href="https://drugsafety.ru/report" target="_blank" rel="noopener">drugsafety.ru/report</a></p>
       </div>
     </div>
     <p class="foot-note">© ООО «Тульская фармацевтическая фабрика», 1972–2026 · ИНН 7105028574 · ОГРН 1027100687745 · <a href="policy.html">Политика конфиденциальности</a></p>
   </footer>
 </main>
+<script src="js/menu.js" defer></script>
 </body>
 </html>

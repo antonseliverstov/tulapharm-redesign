@@ -247,8 +247,6 @@ footer { text-align: center; font-size: 12px; color: var(--muted); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1000px) {
-  .topbar { flex-wrap: wrap; row-gap: 10px; }
-  .topbar > .nav { order: 2; width: 100%; overflow-x: auto; gap: 18px; padding-bottom: 4px; white-space: nowrap; scrollbar-width: none; }
   .about, .contact { grid-template-columns: minmax(0, 1fr); }
   .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cat.feature { grid-row: span 1; min-height: 320px; }
@@ -397,4 +395,43 @@ footer { text-align: center; font-size: 12px; color: var(--muted); }
   .instr-body { min-width: 0; overflow-wrap: anywhere; }
   .instr-body > * { min-width: 0; }
   .instr-body table { display: block; overflow-x: auto; max-width: 100%; }
+}
+
+/* ========== ШАПКА: КОРОТКОЕ НАЗВАНИЕ И БУРГЕР ========== */
+.brand-short { display: none; }
+.burger { display: none; flex: none; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #f4f6f8; cursor: pointer; padding: 0; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.burger span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--ink); }
+.burger:hover { background: var(--sky-pale); }
+.mnav { position: fixed; inset: 0; z-index: 100; padding: 12px; background: rgba(15, 22, 30, .45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); overflow-y: auto; animation: mnav-fade .2s ease; }
+.mnav-panel { background: var(--card); border-radius: 26px; padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .35); animation: mnav-drop .25s ease; }
+.mnav-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.mnav-head .brand { font-size: 12px; line-height: 1.3; }
+.mnav-close { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 0; background: #f4f6f8; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.mnav-links { display: grid; }
+.mnav-links a { padding: 11px 2px; font-size: 19px; font-weight: 600; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+.mnav-links a::after { content: "→"; font-weight: 400; color: var(--sky); }
+.mnav-links a[aria-current="page"] { color: var(--link); }
+.mnav-contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mnav-contacts > * { padding: 12px 14px; border-radius: var(--r-md); background: #f4f6f8; font-size: 13.5px; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+.mnav-contacts small { display: block; font-size: 11px; font-weight: 500; color: var(--muted); margin-bottom: 2px; }
+.mnav-cta { justify-content: center; padding: 16px 22px; font-size: 15px; background: var(--sky); color: #fff; }
+.mnav-cta:hover { background: var(--link); }
+html.menu-open, html.menu-open body { overflow: hidden; }
+@keyframes mnav-fade { from { opacity: 0; } }
+@keyframes mnav-drop { from { opacity: 0; transform: translateY(-12px); } }
+@media (prefers-reduced-motion: reduce) { .mnav, .mnav-panel { animation: none; } }
+
+@media (max-width: 1000px) {
+  .topbar { flex-wrap: nowrap; }
+  .topbar > .nav { display: none; }
+  .burger { display: flex; }
+}
+@media (max-width: 720px) {
+  .brand-long { display: none; }
+  .brand-short { display: inline; }
+  .topbar .brand { font-size: 12px; line-height: 1.3; }
+  .values .notch.tr { display: none; }
+}
+@media (max-width: 380px) {
+  .mnav-contacts { grid-template-columns: minmax(0, 1fr); }
 }

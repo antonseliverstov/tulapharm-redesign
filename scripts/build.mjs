@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { typograph } from './typograph.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { categories, products } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/catalog.json'), 'utf8'));
@@ -30,9 +31,41 @@ const ICON = {
 };
 const icon = (key, size = 22) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[key]}</svg>`;
 
+// ---------- общая шапка: меню на десктопе, бургер с контактами на мобильных ----------
+const NAV = [['index.html#about', 'О нас'], ['catalog.html', 'Каталог', 'catalog'], ['index.html#production', 'Производство'], ['index.html#documents', 'Документы'], ['index.html#contact', 'Контакты'], ['index.html#pharmacovigilance', 'Фармаконадзор']];
+function header(base, active = '', onIndex = false) {
+  // на главной — чистые якоря, чтобы переход не перезагружал страницу
+  const href = h => onIndex ? h.replace(/^index.html(?=#)/, '') : base + h;
+  const links = indent => NAV.map(([h, t, k]) => `<a href="${href(h)}"${k === active ? ' aria-current="page"' : ''}>${t}</a>`).join('\n' + indent);
+  return `<header class="topbar">
+      <a class="brand" href="${base}index.html"><img src="${base}img/p1-64.webp" width="26" height="34" alt=""><span class="brand-long">ООО «Тульская фармацевтическая фабрика»</span><span class="brand-short">Тульская фармацевтическая фабрика</span></a>
+      <nav class="nav" aria-label="Основное меню">
+        ${links('        ')}
+      </nav>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </header>
+    <div class="mnav" id="mnav" hidden>
+      <div class="mnav-panel" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="mnav-head">
+          <span class="brand"><img src="${base}img/p1-64.webp" width="22" height="29" alt="">Тульская фармацевтическая фабрика</span>
+          <button class="mnav-close" type="button" aria-label="Закрыть меню"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+        <nav class="mnav-links" aria-label="Мобильное меню">
+          ${links('          ')}
+        </nav>
+        <div class="mnav-contacts">
+          <a href="tel:+74872410473"><small>Телефон</small>+7 (4872) 41-04-73</a>
+          <a href="mailto:info@farmfabrica.ru"><small>Эл. почта</small>info@farmfabrica.ru</a>
+          <span><small>Адрес</small>300004, Тула, Торховский пр-д, 10</span>
+          <a href="tel:88007778604"><small>Фармаконадзор, бесплатно</small>8-800-777-86-04</a>
+        </div>
+        <a class="btn mnav-cta" href="${href('index.html#contact')}">Оставить заявку</a>
+      </div>
+    </div>`;
+}
+
 // ---------- общий каркас ----------
 function page({ base, title, description, active, body }) {
-  const nav = [['index.html#about', 'О нас'], ['catalog.html', 'Каталог', 'catalog'], ['index.html#production', 'Производство'], ['index.html#documents', 'Документы'], ['index.html#contact', 'Контакты'], ['index.html#pharmacovigilance', 'Фармаконадзор']];
   return `<!doctype html>
 <html lang="ru">
 <head>
@@ -49,14 +82,9 @@ function page({ base, title, description, active, body }) {
 </head>
 <body>
 <main class="page">
-  <header class="card site-head">
-    <div class="topbar">
-      <a class="brand" href="${base}index.html"><img src="${base}img/p1-64.webp" width="26" height="34" alt="">ООО «Тульская фармацевтическая фабрика»</a>
-      <nav class="nav" aria-label="Основное меню">
-${nav.map(([h, t, k]) => `        <a href="${base}${h}"${k === active ? ' aria-current="page"' : ''}>${t}</a>`).join('\n')}
-      </nav>
-    </div>
-  </header>
+  <div class="card site-head">
+    ${header(base, active)}
+  </div>
 ${body}
   <footer class="card site-foot">
     <div class="foot-grid">
@@ -72,6 +100,7 @@ ${body}
     <p class="foot-note">© ООО «Тульская фармацевтическая фабрика», 1972–2026 · ИНН 7105028574 · ОГРН 1027100687745 · <a href="${base}policy.html">Политика конфиденциальности</a></p>
   </footer>
 </main>
+<script src="${base}js/menu.js" defer></script>
 </body>
 </html>
 `;
@@ -227,7 +256,16 @@ function policyPage() {
 const outDir = path.join(ROOT, 'products');
 fs.rmSync(outDir, { recursive: true, force: true });
 fs.mkdirSync(outDir);
-fs.writeFileSync(path.join(ROOT, 'catalog.html'), catalogPage());
-fs.writeFileSync(path.join(ROOT, 'policy.html'), policyPage());
-for (const p of products) fs.writeFileSync(path.join(outDir, p.slug + '.html'), productPage(p));
+const write = (file, html) => fs.writeFileSync(file, typograph(html));
+write(path.join(ROOT, 'catalog.html'), catalogPage());
+write(path.join(ROOT, 'policy.html'), policyPage());
+for (const p of products) write(path.join(outDir, p.slug + '.html'), productPage(p));
+
+// главная свёрстана вручную: подставляем общую шапку между метками и прогоняем типограф
+const indexFile = path.join(ROOT, 'index.html');
+let index = fs.readFileSync(indexFile, 'utf8');
+const start = '<!-- header:start -->', end = '<!-- header:end -->';
+if (!index.includes(start) || !index.includes(end)) throw new Error('в index.html нет меток шапки');
+index = index.slice(0, index.indexOf(start) + start.length) + '\n    ' + header('', '', true) + '\n    ' + index.slice(index.indexOf(end));
+write(indexFile, index);
 console.log(`catalog.html, policy.html, products/*.html: ${products.length}`);

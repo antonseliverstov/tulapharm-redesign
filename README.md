@@ -22,4 +22,4 @@ PDF-инструкции и разрешительные документы ле
 node scripts/build.mjs
 ```
 
-Скрипт пересоздаёт `catalog.html`, `policy.html` и папку `products/`.
+Скрипт пересоздаёт `catalog.html`, `policy.html` и папку `products/`, подставляет общую шапку в `index.html` (между метками `header:start` / `header:end`) и прогоняет все страницы через типограф `scripts/typograph.mjs` — он привязывает предлоги и союзы неразрывным пробелом.
