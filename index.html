@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Тульская фармацевтическая фабрика</title>
+<meta name="description" content="ООО «Тульская фармацевтическая фабрика» — производство лекарственных препаратов с 1972 года: мази, гели, растворы, настойки, суппозитории, порошки.">
+<link rel="icon" href="img/p1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,9 +14,11 @@
     --bg: #e7e9ec;
     --card: #ffffff;
     --ink: #16191d;
-    --muted: #7d8590;
+    --muted: #646c76;
     --line: #e6e9ee;
-    --sky: #8fcbe3;        /* светло-голубой акцент заголовков, как в референсе */
+    --sky: #3896bf;        /* голубой акцент заголовков; темнее референса ради контраста 3:1 */
+    --sky-ink: #0f3a4f;    /* текст на светло-голубых плашках */
+    --link: #006b96;
     --sky-soft: #a9d6ea;
     --sky-pale: #e6f3f9;
     --brand: #009fd9;      /* синий из логотипа фабрики */
@@ -36,15 +40,17 @@
   }
   img { display: block; max-width: 100%; }
   a { color: inherit; text-decoration: none; }
+  a[href^="tel"] { white-space: nowrap; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  .page { max-width: 1240px; margin: 0 auto; padding: 32px 24px 64px; display: grid; gap: 28px; }
+  .page { max-width: 1240px; margin: 0 auto; padding: 32px 24px 64px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .card {
     background: var(--card);
     border-radius: var(--r-xl);
     padding: 28px;
     box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 30px 60px -30px rgba(30, 50, 70, .25), 0 4px 14px rgba(30,50,70,.05);
   }
-  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 
   /* ---------- header / nav ---------- */
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
@@ -53,14 +59,15 @@
   .nav { display: flex; gap: 26px; font-size: 13px; font-weight: 500; }
   .nav a { color: var(--ink); opacity: .85; transition: color .2s; }
   .nav a:hover { color: var(--brand); }
-  .nav.faint a { color: #b9c0c8; }
-  .nav.faint a.on { color: var(--sky); }
+  .nav.faint a, .nav.faint span { color: var(--muted); }
+  .nav.faint .on { color: var(--link); }
   .mini-brand { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
   .mini-brand img { width: 16px; }
 
   /* ---------- typography ---------- */
   .h-display {
-    font-size: clamp(30px, 4.1vw, 50px);
+    font-size: clamp(24px, 4.1vw, 50px);
+    overflow-wrap: anywhere; hyphens: auto;
     line-height: 1.08;
     font-weight: 600;
     letter-spacing: .035em;
@@ -101,7 +108,7 @@
   .hero .media { height: clamp(520px, 52vw, 640px); }
   .hero .media > img.bg { object-position: 70% 50%; }
   .hero .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,159,217,.08), rgba(0,50,100,.35)); }
-  .hero .notch.tl { padding: 0 34px 26px 0; max-width: 72%; }
+  .hero .notch.tl { padding: 6px 34px 26px 6px; max-width: 72%; }
   .hero .pill {
     position: absolute; z-index: 2; left: 26px; bottom: 150px;
     padding: 12px 22px; border-radius: 999px; font-size: 15px; font-weight: 500;
@@ -110,7 +117,7 @@
   .hero-plate {
     background: var(--sky-soft); border-radius: var(--r-md);
     padding: 22px 26px; display: flex; gap: 18px; align-items: center;
-    color: #fff; font-size: 15px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; line-height: 1.35;
+    color: var(--sky-ink); font-size: 15px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; line-height: 1.35;
   }
   .hero-plate .ring { width: 34px; height: 34px; border-width: 2px; }
   .hero-stats { position: absolute; z-index: 2; left: 26px; bottom: 26px; display: flex; gap: 12px; flex-wrap: wrap; max-width: 50%; }
@@ -127,30 +134,33 @@
     transition: background .25s, color .25s; border: 0; text-align: left; font: inherit; color: inherit;
   }
   .tog .ico { width: 44px; height: 44px; border-radius: 12px; background: #fff; display: grid; place-items: center; color: var(--sky); }
-  .tog h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-  .tog p { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .tog .t-title { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .tog .t-text { display: block; font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .tog:not(.light):not(.dark)[aria-pressed="true"] { background: var(--sky-pale); }
+  .tog:not(.light):not(.dark)[aria-pressed="true"] .switch { background: var(--sky); }
+  :focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
   .switch { width: 30px; height: 17px; border-radius: 999px; background: #cfd5db; position: relative; margin-top: 2px; transition: background .25s; }
   .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 13px; height: 13px; border-radius: 50%; background: #fff; transition: transform .25s; }
   .tog[aria-pressed="true"] .switch::after { transform: translateX(13px); }
   .tog.light[aria-pressed="true"] { background: var(--sky-soft); }
-  .tog.light[aria-pressed="true"] p { color: #fff; }
+  .tog.light[aria-pressed="true"] .t-text { color: var(--sky-ink); }
   .tog.light[aria-pressed="true"] .switch { background: #fff; }
   .tog.light[aria-pressed="true"] .switch::after { background: var(--sky-soft); }
   .tog.dark[aria-pressed="true"] { background: var(--dark); color: #fff; }
-  .tog.dark[aria-pressed="true"] p { color: #aab2bb; }
+  .tog.dark[aria-pressed="true"] .t-text { color: #aab2bb; }
   .tog.dark[aria-pressed="true"] .ico { background: #2d333a; }
   .tog.dark[aria-pressed="true"] .switch { background: var(--sky); }
   .side-photo { min-height: 330px; }
   .side-photo .caps { position: absolute; left: 14px; right: 14px; bottom: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; color: #fff; font-size: 10.5px; line-height: 1.35; z-index: 1; }
   .side-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,40,80,.55)); }
-  .more { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--brand); }
+  .more { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--link); }
 
   /* ---------- PRODUCTION columns ---------- */
   .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
   .pcol { background: #f4f6f8; border-radius: var(--r-md); display: flex; flex-direction: column; overflow: hidden; }
   .pcol .body { padding: 14px 14px 12px; flex: 1; }
-  .pcol .num { float: right; font-size: 10px; color: #b4bcc4; }
-  .pcol h4 { font-size: 12px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
+  .pcol .num { float: right; font-size: 10px; color: var(--muted); }
+  .pcol h3 { font-size: 12px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
   .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
   .chip { font-size: 9.5px; padding: 3px 9px; border-radius: 999px; background: var(--sky-soft); color: #134; font-weight: 500; }
   .pcol p { font-size: 10px; color: var(--muted); line-height: 1.45; }
@@ -181,13 +191,13 @@
   .stat { border-radius: var(--r-md); padding: 20px; background: #f4f6f8; display: flex; flex-direction: column; justify-content: space-between; min-height: 130px; }
   .stat b { font-size: 38px; font-weight: 600; letter-spacing: .01em; line-height: 1; }
   .stat span { font-size: 12.5px; color: var(--muted); }
-  .stat.sky { background: var(--sky-soft); color: #fff; }
-  .stat.sky span { color: #fff; }
+  .stat.sky { background: var(--sky-soft); color: var(--sky-ink); }
+  .stat.sky span { color: var(--sky-ink); }
   .stat.dark { background: var(--dark); color: #fff; }
   .stat.dark span { color: #aab2bb; }
   .stat.photo { position: relative; overflow: hidden; color: #fff; }
   .stat.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .stat.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,60,110,.25), rgba(0,40,80,.75)); }
+  .stat.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,40,80,.6), rgba(0,30,60,.85)); }
   .stat.photo > * { position: relative; z-index: 1; }
   .stat.photo span { color: #fff; }
 
@@ -195,7 +205,8 @@
   .certs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
   .cert { background: #f4f6f8; border-radius: var(--r-md); padding: 10px; display: grid; gap: 10px; }
   .cert img { aspect-ratio: 3/4; object-fit: cover; border-radius: 10px; width: 100%; }
-  .cert a { font-size: 11px; font-weight: 600; color: var(--brand); display: flex; justify-content: space-between; align-items: center; }
+  .cert a { font-size: 11px; font-weight: 600; color: var(--link); display: flex; flex-direction: column; gap: 2px; line-height: 1.3; }
+  .cert a span { font-weight: 500; color: var(--muted); }
   .partners { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
   .partners span { padding: 10px 16px; border-radius: 999px; background: #f4f6f8; font-size: 13px; font-weight: 500; }
   .partners span:nth-child(3n+1) { background: var(--sky-pale); }
@@ -216,33 +227,41 @@
   form textarea { grid-column: 1 / -1; min-height: 96px; resize: vertical; }
   form .foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   form .foot p { font-size: 10.5px; color: #8b949e; max-width: 46ch; }
-  form button { font: inherit; font-weight: 600; font-size: 13px; padding: 13px 26px; border-radius: 999px; border: 0; background: var(--sky); color: var(--dark); cursor: pointer; }
+  form button { font: inherit; font-weight: 600; font-size: 13px; padding: 13px 26px; border-radius: 999px; border: 0; background: var(--sky-soft); color: var(--dark); cursor: pointer; }
   form button:hover { background: #fff; }
+  form a { color: var(--sky-soft); text-decoration: underline; }
+  form [aria-invalid="true"] { border-color: #ff8a8a; }
+  .form-msg { grid-column: 1 / -1; font-size: 12px; color: var(--sky-soft); min-height: 1em; }
+  .form-msg:empty { display: none; }
+  .cline a { color: var(--link); }
+  .cline.pv { background: var(--sky-pale); }
 
   footer { text-align: center; font-size: 12px; color: var(--muted); }
 
   /* ---------- responsive ---------- */
   @media (max-width: 1000px) {
-    .row-2, .about, .contact { grid-template-columns: 1fr; }
-    .values-grid { grid-template-columns: 1fr; }
+    .row-2, .about, .contact { grid-template-columns: minmax(0, 1fr); }
+    .values-grid { grid-template-columns: minmax(0, 1fr); }
     .values .media { padding-top: 130px; }
   }
   @media (max-width: 720px) {
     .page { padding: 16px 12px 40px; gap: 16px; }
     .card { padding: 16px; border-radius: 22px; }
-    .nav { display: none; }
+    .topbar { flex-wrap: wrap; row-gap: 10px; }
+    .topbar > .nav { order: 2; width: 100%; overflow-x: auto; gap: 18px; padding-bottom: 4px; white-space: nowrap; scrollbar-width: none; }
+    .notch .nav, .nav.faint { display: none; }
     :root { --notch: 22px; }
     .hero .media { height: 640px; }
-    .hero .notch.tl { max-width: 92%; padding: 0 18px 16px 0; }
+    .hero .notch.tl { max-width: 92%; padding: 6px 18px 16px 6px; }
     .hero .pill { bottom: auto; top: 250px; left: 16px; font-size: 13px; }
     .hero .notch.br { width: 100%; }
     .hero-plate { font-size: 12px; padding: 16px; }
     .hero-stats { left: 16px; bottom: 116px; max-width: calc(100% - 32px); }
     .hero-stats div { min-width: 0; flex: 1; padding: 10px 12px; }
     .hero-stats b { font-size: 20px; }
-    .split, .cols-3, .certs, .stats { grid-template-columns: 1fr; }
-    .certs { grid-template-columns: 1fr 1fr; }
-    form { grid-template-columns: 1fr; }
+    .split, .cols-3, .stats { grid-template-columns: minmax(0, 1fr); }
+    .certs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    form { grid-template-columns: minmax(0, 1fr); }
     form .foot { flex-direction: column; align-items: stretch; }
   }
 </style>
@@ -254,12 +273,13 @@
   <section class="card hero" id="top">
     <header class="topbar">
       <a class="brand" href="#top"><img src="img/p1.jpg" alt="">ООО «Тульская фармацевтическая фабрика»</a>
-      <nav class="nav">
+      <nav class="nav" aria-label="Основное меню">
         <a href="#about">О нас</a>
         <a href="#products">Продукция</a>
         <a href="#values">Ценности</a>
         <a href="#partners">Партнёры</a>
         <a href="#contact">Контакты</a>
+        <a href="#pharmacovigilance">Фармаконадзор</a>
       </nav>
     </header>
 
@@ -293,7 +313,7 @@
   <div class="row-2">
     <section class="card" id="products">
       <div class="topbar">
-        <nav class="nav faint" style="gap:16px;font-size:10px"><a href="#about">О нас</a><a class="on" href="#products">Продукция</a><a href="#partners">Партнёры</a><a href="#contact">Контакты</a></nav>
+        <div class="nav faint" aria-hidden="true" style="gap:16px;font-size:10px"><span>О нас</span><span class="on">Продукция</span><span>Партнёры</span><span>Контакты</span></div>
         <span class="mini-brand"><img src="img/p1.jpg" alt="">Тульская фарм. фабрика</span>
       </div>
       <h2 class="h-section">Формы <span class="sky">выпуска</span></h2>
@@ -303,21 +323,21 @@
           <div class="toggles" id="toggles">
             <button class="tog" aria-pressed="false" type="button">
               <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span>
-              <span><h4>Мягкие формы</h4><p>Гели, крема, мази и пасты: Ацикловир, Гепариновая мазь, Декспантенол, Диклофенак-гель.</p></span>
+              <span><span class="t-title">Мягкие формы</span><span class="t-text">Гели, крема, мази и пасты: Ацикловир, Гепариновая мазь, Декспантенол, Диклофенак-гель.</span></span>
               <span class="switch"></span>
             </button>
             <button class="tog light" aria-pressed="true" type="button">
               <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
-              <span><h4>Жидкие формы</h4><p>Растворы, настойки, экстракты, масла, капли, спреи, сиропы и эликсиры.</p></span>
+              <span><span class="t-title">Жидкие формы</span><span class="t-text">Растворы, настойки, экстракты, масла, капли, спреи, сиропы и эликсиры.</span></span>
               <span class="switch"></span>
             </button>
             <button class="tog dark" aria-pressed="false" type="button">
               <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="M12 7.5l-3.7 8.3" transform="rotate(-35 12 12)"/></svg></span>
-              <span><h4>Суппозитории, порошки, таблетки</h4><p>Суппозитории, порошки и гранулы для приготовления, таблетки и капсулы.</p></span>
+              <span><span class="t-title">Суппозитории, порошки, таблетки</span><span class="t-text">Суппозитории, порошки и гранулы для приготовления, таблетки и капсулы.</span></span>
               <span class="switch"></span>
             </button>
           </div>
-          <a class="more" href="https://tulapharm.com/catalog">Весь каталог — 237+ наименований →</a>
+          <a class="more" href="https://tulapharm.com/catalog">Каталог продукции на tulapharm.com →</a>
         </div>
         <div class="media side-photo">
           <img class="bg" src="img/p3.jpg" alt="Линия фасовки">
@@ -331,7 +351,7 @@
 
     <section class="card" id="production">
       <div class="topbar">
-        <nav class="nav faint" style="gap:16px;font-size:10px"><a href="#about">О нас</a><a class="on" href="#production">Производство</a><a href="#partners">Партнёры</a><a href="#contact">Контакты</a></nav>
+        <div class="nav faint" aria-hidden="true" style="gap:16px;font-size:10px"><span>О нас</span><span class="on">Производство</span><span>Партнёры</span><span>Контакты</span></div>
         <span class="mini-brand"><img src="img/p1.jpg" alt="">Тульская фарм. фабрика</span>
       </div>
       <h2 class="h-section"><span class="sky">Производство</span><span class="dot-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg></span>GMP</h2>
@@ -340,7 +360,7 @@
         <article class="pcol">
           <div class="body">
             <span class="num">01</span>
-            <h4>Производство лекарственных форм</h4>
+            <h3>Производство лекарственных форм</h3>
             <div class="chips"><span class="chip">Растворы</span><span class="chip">Мази</span><span class="chip">Настойки</span><span class="chip">Порошки</span></div>
             <div class="label">3 этаж</div>
             <p>Субстанции и нестерильные формы: растворы, линименты, масла, суспензии, экстракты. На 2 этаже — упаковка.</p>
@@ -350,7 +370,7 @@
         <article class="pcol">
           <div class="body">
             <span class="num">02</span>
-            <h4>Водоподготовка</h4>
+            <h3>Водоподготовка</h3>
             <div class="chips"><span class="chip">ФС.2.2.0020.15</span><span class="chip">IQ / OQ</span></div>
             <div class="label">Установка 2T-PWG</div>
             <p>Вода очищенная участвует в подготовке помещений, посуды и приготовлении препаратов. Оборудование прошло квалификацию.</p>
@@ -360,7 +380,7 @@
         <article class="pcol">
           <div class="body">
             <span class="num">03</span>
-            <h4>Воздухоподготовка</h4>
+            <h3>Воздухоподготовка</h3>
             <div class="chips"><span class="chip">Класс K</span><span class="chip">2 ступени</span></div>
             <div class="label">Приток и вытяжка</div>
             <p>Помещения для полупродуктов получают воздух, прошедший двухступенчатую очистку.</p>
@@ -376,7 +396,7 @@
     <div class="media">
       <img class="bg" src="img/p6.jpg" alt="">
       <div class="notch tl">
-        <nav class="nav faint" style="font-size:12px;margin-bottom:26px"><a href="#about">О нас</a><a class="on" href="#values">Ценности</a><a href="#products">Продукция</a><a href="#contact">Контакты</a></nav>
+        <div class="nav faint" aria-hidden="true" style="font-size:12px;margin-bottom:26px"><span>О нас</span><span class="on">Ценности</span><span>Продукция</span><span>Контакты</span></div>
         <h2 class="h-display" style="font-size:clamp(26px,3vw,38px)">Наши<br><span class="sky">ценности</span></h2>
       </div>
       <div class="notch tr"><span class="brand" style="font-size:11px"><span class="ring" style="width:18px;height:18px"></span>Тульская фармацевтическая фабрика</span></div>
@@ -396,15 +416,15 @@
           <h3>Добросовестность</h3>
           <ul>
             <li>Несём ответственность за здоровье людей</li>
-            <li>Контролируем все стадии разработки и испытаний</li>
-            <li>Гарантируем качество каждой серии</li>
+            <li>Контролируем все стадии разработки, испытаний и производства</li>
+            <li>Гарантируем качество лекарств</li>
           </ul>
         </article>
         <article class="vcard glass">
           <div class="vicon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div>
           <h3>Эффективность</h3>
           <ul>
-            <li>Выстраиваем прозрачные бизнес-процессы</li>
+            <li>Эффективно выстраиваем бизнес-процессы</li>
             <li>Модернизируем фармацевтические производства</li>
             <li>Выпускаем востребованные препараты разных групп</li>
           </ul>
@@ -425,7 +445,7 @@
       <div class="stat sky"><b>50+</b><span>лет производим лекарства</span></div>
       <div class="stat"><b>237+</b><span>наименований препаратов</span></div>
       <div class="stat photo"><img src="img/p4.jpg" alt=""><b>20+</b><span>препаратов из перечня ЖНВЛП</span></div>
-      <div class="stat dark"><b>GMP</b><span>международный стандарт производства</span></div>
+      <div class="stat dark"><b>GMP</b><span>производство по правилам надлежащей практики</span></div>
     </div>
   </section>
 
@@ -434,10 +454,10 @@
     <section class="card">
       <h2 class="h-section">Наши <span class="sky">сертификаты</span></h2>
       <div class="certs">
-        <div class="cert"><img src="img/p7.jpg" alt="Лицензия"><a href="#">Скачать <span>↓</span></a></div>
-        <div class="cert"><img src="img/p8.jpg" alt="Лицензия"><a href="#">Скачать <span>↓</span></a></div>
-        <div class="cert"><img src="img/p9.jpg" alt="Лицензия"><a href="#">Скачать <span>↓</span></a></div>
-        <div class="cert"><img src="img/p10.jpg" alt="Лицензия"><a href="#">Скачать <span>↓</span></a></div>
+        <div class="cert"><img src="img/p7.jpg" alt="Лицензия Росздравнадзора на фармацевтическую деятельность ФС-99-02-005672" loading="lazy"><a href="https://tulapharm.com/storage/uploads/dd1641b2daa56a0aea2008834c8ff09a772b2d7d-WYDMO.pdf" target="_blank" rel="noopener">Фармдеятельность <span>PDF ↓</span></a></div>
+        <div class="cert"><img src="img/p8.jpg" alt="Лицензия Минпромторга на производство лекарственных средств № 00281-ЛС" loading="lazy"><a href="https://tulapharm.com/storage/uploads/322e4dc9fcd75b5fd164ffb1c004fbbc4b12b2e7-gU_zA.pdf" target="_blank" rel="noopener">Производство ЛС <span>PDF ↓</span></a></div>
+        <div class="cert"><img src="img/p9.jpg" alt="Сертификат соответствия правилам GMP ЕАЭС № GMP/EAEU/RU/00104-2021" loading="lazy"><a href="https://tulapharm.com/storage/uploads/58e63d150326ed9a1a9db54ca017eba4d756a301-LM9Nw.pdf" target="_blank" rel="noopener">GMP ЕАЭС <span>PDF ↓</span></a></div>
+        <div class="cert"><img src="img/p10.jpg" alt="Лицензия на оборот наркотических средств и психотропных веществ ФС-99-03-000380" loading="lazy"><a href="https://tulapharm.com/storage/uploads/f93bfd67971178721c607d6763cd82eae8fe3c85-DxUMH.pdf" target="_blank" rel="noopener">Оборот НС и ПВ <span>PDF ↓</span></a></div>
       </div>
     </section>
     <section class="card" id="partners">
@@ -458,24 +478,31 @@
         <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span><small>Адрес</small>300004, Тула, Торховский пр-д, 10</span></div>
         <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><small>Телефон</small><a href="tel:+74872410473">+7 (4872) 41-04-73</a></span></div>
         <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Эл. почта</small><a href="mailto:info@farmfabrica.ru">info@farmfabrica.ru</a></span></div>
-        <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg></span><span><small>Претензии</small>+7 (4872) 41-04-73, доб. 144 · p.kotova@farmfabrica.ru</span></div>
+        <div class="cline"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/></svg></span><span><small>Претензии</small><a href="tel:+74872410473,144">+7 (4872) 41-04-73</a>, доб. 144 · <a href="mailto:p.kotova@farmfabrica.ru">p.kotova@farmfabrica.ru</a></span></div>
+        <div class="cline pv" id="pharmacovigilance"><span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M12 8v4M12 15v.5"/></svg></span><span><small>Фармаконадзор — сообщить о нежелательной реакции</small>Горячая линия <a href="tel:88007778604">8-800-777-86-04</a> (бесплатно) или форма на <a href="https://drugsafety.ru/report" target="_blank" rel="noopener">drugsafety.ru/report</a></span></div>
       </div>
-      <form onsubmit="event.preventDefault()">
+      <form id="feedback" novalidate>
         <h3>Обратная связь</h3>
-        <input placeholder="ФИО*" required>
-        <input placeholder="Телефон" type="tel">
-        <input placeholder="Компания">
-        <input placeholder="Эл. почта*" type="email" required>
-        <textarea placeholder="Текст сообщения или вопроса*" required></textarea>
+        <label class="sr-only" for="f-name">ФИО</label>
+        <input id="f-name" name="name" type="text" placeholder="ФИО*" autocomplete="name" required>
+        <label class="sr-only" for="f-phone">Телефон</label>
+        <input id="f-phone" name="phone" type="tel" placeholder="Телефон" autocomplete="tel">
+        <label class="sr-only" for="f-company">Компания</label>
+        <input id="f-company" name="company" type="text" placeholder="Компания" autocomplete="organization">
+        <label class="sr-only" for="f-email">Эл. почта</label>
+        <input id="f-email" name="email" type="email" placeholder="Эл. почта*" autocomplete="email" required>
+        <label class="sr-only" for="f-msg">Текст сообщения</label>
+        <textarea id="f-msg" name="message" placeholder="Текст сообщения или вопроса*" required></textarea>
         <div class="foot">
-          <p>Нажимая «Отправить», вы подтверждаете согласие на обработку персональных данных.</p>
+          <p>Нажимая «Отправить», вы подтверждаете согласие на <a href="https://tulapharm.com/policy" target="_blank" rel="noopener">обработку персональных данных</a>. Письмо откроется в вашем почтовом клиенте.</p>
           <button type="submit">Отправить</button>
         </div>
+        <p class="form-msg" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
 
-  <footer>© ООО «Тульская фармацевтическая фабрика», 1972–2026</footer>
+  <footer>© ООО «Тульская фармацевтическая фабрика», 1972–2026 · ИНН 7105028574 · ОГРН 1027100687745</footer>
 </main>
 
 <script>
@@ -484,6 +511,25 @@
     btn.addEventListener('click', () => {
       document.querySelectorAll('#toggles .tog').forEach(b => b.setAttribute('aria-pressed', b === btn));
     });
+  });
+
+  // форма: своя проверка полей, затем письмо через почтовый клиент (бэкенда нет)
+  const form = document.getElementById('feedback');
+  const msg = form.querySelector('.form-msg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = [...form.elements].filter(el => el.willValidate && !el.checkValidity());
+    form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+    if (bad.length) {
+      bad.forEach(el => el.setAttribute('aria-invalid', 'true'));
+      msg.textContent = 'Заполните обязательные поля: ' + bad.map(el => el.labels[0].textContent).join(', ') + '.';
+      bad[0].focus();
+      return;
+    }
+    const f = Object.fromEntries(new FormData(form));
+    const body = `ФИО: ${f.name}\nТелефон: ${f.phone || '—'}\nКомпания: ${f.company || '—'}\nЭл. почта: ${f.email}\n\n${f.message}`;
+    location.href = 'mailto:info@farmfabrica.ru?subject=' + encodeURIComponent('Обратная связь с сайта') + '&body=' + encodeURIComponent(body);
+    msg.textContent = 'Открываем почтовый клиент — проверьте письмо и отправьте его.';
   });
 </script>
 </body>
