@@ -51,7 +51,6 @@
     padding: 28px;
     box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 30px 60px -30px rgba(30, 50, 70, .25), 0 4px 14px rgba(30,50,70,.05);
   }
-  .row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 
   /* ---------- header / nav ---------- */
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
@@ -60,10 +59,6 @@
   .nav { display: flex; gap: 26px; font-size: 13px; font-weight: 500; }
   .nav a { color: var(--ink); opacity: .85; transition: color .2s; }
   .nav a:hover { color: var(--brand); }
-  .nav.faint a, .nav.faint span { color: var(--muted); }
-  .nav.faint .on { color: var(--link); }
-  .mini-brand { display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
-  .mini-brand img { width: 16px; }
 
   /* ---------- typography ---------- */
   .h-display {
@@ -103,7 +98,6 @@
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     color: #fff;
   }
-  .ring { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid currentColor; flex: none; }
 
   /* ---------- HERO ---------- */
   .hero .media { height: clamp(520px, 52vw, 640px); }
@@ -120,55 +114,74 @@
     padding: 22px 26px; display: flex; gap: 18px; align-items: center;
     color: var(--sky-ink); font-size: 15px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; line-height: 1.35;
   }
-  .hero-plate .ring { width: 34px; height: 34px; border-width: 2px; }
   .hero-stats { position: absolute; z-index: 2; left: 26px; bottom: 26px; display: flex; gap: 12px; flex-wrap: wrap; max-width: 50%; }
   .hero-stats div { padding: 12px 18px; border-radius: var(--r-md); min-width: 120px; }
   .hero-stats b { display: block; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
   .hero-stats span { font-size: 12px; opacity: .92; }
 
-  /* ---------- PRODUCTS (toggle list) ---------- */
-  .split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 14px; margin-top: 20px; }
-  .toggles { display: grid; gap: 10px; }
-  .tog {
-    display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: start;
-    padding: 14px; border-radius: var(--r-md); background: #f4f6f8; cursor: pointer;
-    transition: background .25s, color .25s; border: 0; text-align: left; font: inherit; color: inherit;
-  }
-  .tog .ico { width: 44px; height: 44px; border-radius: 12px; background: #fff; display: grid; place-items: center; color: var(--sky); }
-  .tog .t-title { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-  .tog .t-text { display: block; font-size: 11px; color: var(--muted); line-height: 1.4; }
-  .tog:not(.light):not(.dark)[aria-pressed="true"] { background: var(--sky-pale); }
-  .tog:not(.light):not(.dark)[aria-pressed="true"] .switch { background: var(--sky); }
+  /* ---------- section head ---------- */
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 32px; flex-wrap: wrap; margin-bottom: 24px; }
+  .sec-head p { max-width: 54ch; font-size: 14px; color: var(--muted); }
   :focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
-  .switch { width: 30px; height: 17px; border-radius: 999px; background: #cfd5db; position: relative; margin-top: 2px; transition: background .25s; }
-  .switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 13px; height: 13px; border-radius: 50%; background: #fff; transition: transform .25s; }
-  .tog[aria-pressed="true"] .switch::after { transform: translateX(13px); }
-  .tog.light[aria-pressed="true"] { background: var(--sky-soft); }
-  .tog.light[aria-pressed="true"] .t-text { color: var(--sky-ink); }
-  .tog.light[aria-pressed="true"] .switch { background: #fff; }
-  .tog.light[aria-pressed="true"] .switch::after { background: var(--sky-soft); }
-  .tog.dark[aria-pressed="true"] { background: var(--dark); color: #fff; }
-  .tog.dark[aria-pressed="true"] .t-text { color: #aab2bb; }
-  .tog.dark[aria-pressed="true"] .ico { background: #2d333a; }
-  .tog.dark[aria-pressed="true"] .switch { background: var(--sky); }
-  .side-photo { min-height: 330px; }
-  .side-photo .caps { position: absolute; left: 14px; right: 14px; bottom: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; color: #fff; font-size: 10.5px; line-height: 1.35; z-index: 1; }
-  .side-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,40,80,.55)); }
-  .more { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--link); }
+  .more { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--link); }
 
-  /* ---------- PRODUCTION columns ---------- */
-  .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
-  .pcol { background: #f4f6f8; border-radius: var(--r-md); display: flex; flex-direction: column; overflow: hidden; }
-  .pcol .body { padding: 14px 14px 12px; flex: 1; }
-  .pcol .num { float: right; font-size: 10px; color: var(--muted); }
-  .pcol h3 { font-size: 12px; font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
-  .chip { font-size: 9.5px; padding: 3px 9px; border-radius: 999px; background: var(--sky-soft); color: #134; font-weight: 500; }
-  .pcol p { font-size: 10px; color: var(--muted); line-height: 1.45; }
-  .pcol .label { font-size: 10px; font-weight: 700; margin-bottom: 3px; }
-  .pcol .ph { height: 120px; position: relative; }
-  .pcol .ph img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.9); }
-  .pcol .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,159,217,.1), rgba(0,120,200,.35)); mix-blend-mode: multiply; }
+  /* ---------- PARTNERS marquee ---------- */
+  .partners-strip { padding: 22px 0; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 24px; }
+  .partners-strip .label { padding-left: 28px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; line-height: 1.35; color: var(--muted); }
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .marquee-track { display: flex; align-items: center; gap: 56px; width: max-content; padding-right: 56px; animation: marquee 38s linear infinite; }
+  .marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
+  .marquee-track img { height: 46px; width: auto; filter: grayscale(1); opacity: .65; transition: filter .3s, opacity .3s; }
+  .marquee-track img:hover { filter: none; opacity: 1; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; row-gap: 20px; }
+    .marquee-track [aria-hidden="true"] { display: none; }
+  }
+
+  /* ---------- CATALOG ---------- */
+  .catalog { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .cat {
+    background: #f4f6f8; border-radius: var(--r-md); padding: 18px; display: flex; flex-direction: column; gap: 10px;
+    min-height: 210px; transition: background .25s, transform .25s;
+  }
+  .cat:hover { background: var(--sky-pale); transform: translateY(-2px); }
+  .cat .ico { width: 44px; height: 44px; border-radius: 12px; background: #fff; display: grid; place-items: center; color: var(--sky); margin-bottom: 6px; }
+  .cat h3 { font-size: 15px; font-weight: 700; line-height: 1.25; }
+  .cat ul { list-style: none; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+  .cat .go { margin-top: auto; font-size: 12.5px; font-weight: 600; color: var(--link); }
+  .cat.feature { grid-column: span 2; grid-row: span 2; position: relative; overflow: hidden; color: #fff; padding: 26px; justify-content: flex-end; }
+  .cat.feature img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .cat.feature::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,40,80,.05) 20%, rgba(0,30,60,.85)); }
+  .cat.feature > :not(img) { position: relative; z-index: 1; }
+  .cat.feature:hover { transform: none; }
+  .cat.feature:hover img { transform: scale(1.04); }
+  .cat.feature h3 { font-size: clamp(20px, 2vw, 26px); font-weight: 600; }
+  .cat.feature ul { color: rgba(255,255,255,.88); font-size: 14px; }
+  .cat.feature .go { color: #fff; }
+  .cat.feature .tag { align-self: flex-start; margin-bottom: auto; padding: 8px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 500; }
+  .cat.cta { background: var(--dark); color: #fff; justify-content: space-between; }
+  .cat.cta:hover { background: #2a3037; }
+  .cat.cta b { font-size: 34px; font-weight: 600; line-height: 1; }
+  .cat.cta p { font-size: 13px; color: #aab2bb; }
+  .cat.cta .go { color: var(--sky-soft); }
+
+  /* ---------- PRODUCTION ---------- */
+  .prod-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .pcol { background: #f4f6f8; border-radius: var(--r-lg); display: flex; flex-direction: column; overflow: hidden; }
+  .pcol .ph { height: 230px; position: relative; }
+  .pcol .ph img { width: 100%; height: 100%; object-fit: cover; }
+  .pcol .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,159,217,.08), rgba(0,90,160,.3)); mix-blend-mode: multiply; }
+  .pcol .num { position: absolute; z-index: 1; top: 14px; left: 14px; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(0,40,80,.5); }
+  .pcol .body { padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+  .pcol h3 { font-size: 19px; font-weight: 700; line-height: 1.25; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 11.5px; padding: 5px 11px; border-radius: 999px; background: var(--sky-soft); color: var(--sky-ink); font-weight: 500; }
+  .pcol p { font-size: 13.5px; color: #4a525b; line-height: 1.55; }
+  .pcol .facts { list-style: none; display: grid; gap: 6px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 12.5px; }
+  .pcol .facts li { display: flex; justify-content: space-between; gap: 12px; }
+  .pcol .facts span { color: var(--muted); }
+  .pcol .facts b { font-weight: 600; text-align: right; }
   .dot-badge { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--dark); color: #fff; vertical-align: middle; margin: 0 6px 4px; }
 
   /* ---------- VALUES (glass over photo) ---------- */
@@ -176,7 +189,10 @@
   .values .media > img.bg { filter: blur(3px) saturate(1.1); transform: scale(1.04); object-position: 60% 30%; }
   .values .media::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,110,180,.15) 20%, rgba(0,60,120,.6)); z-index: 1; }
   .values .notch.tl { padding: 6px 34px 24px 6px; }
-  .values .notch.tr { padding: 6px 8px 18px 20px; }
+  .values .notch.tr { padding: 8px 10px 18px 22px; }
+  .values-brand { font-size: 11.5px; gap: 10px; }
+  .values-brand img { width: 22px; }
+  .plate-logo { width: 30px; height: auto; flex: none; }
   .values-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; }
   .vcard { border-radius: var(--r-lg); padding: 22px 22px 26px; }
   .vcard .vicon { width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,.35); display: grid; place-items: center; margin-bottom: 30px; }
@@ -202,15 +218,18 @@
   .stat.photo > * { position: relative; z-index: 1; }
   .stat.photo span { color: #fff; }
 
-  /* ---------- CERTIFICATES + PARTNERS ---------- */
-  .certs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; }
-  .cert { background: #f4f6f8; border-radius: var(--r-md); padding: 10px; display: grid; gap: 10px; }
-  .cert img { aspect-ratio: 3/4; object-fit: cover; border-radius: 10px; width: 100%; }
-  .cert a { font-size: 11px; font-weight: 600; color: var(--link); display: flex; flex-direction: column; gap: 2px; line-height: 1.3; }
-  .cert a span { font-weight: 500; color: var(--muted); }
-  .partners { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-  .partners span { padding: 10px 16px; border-radius: 999px; background: #f4f6f8; font-size: 13px; font-weight: 500; }
-  .partners span:nth-child(3n+1) { background: var(--sky-pale); }
+  /* ---------- LICENSES & CERTIFICATES ---------- */
+  .docs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .doc { background: #f4f6f8; border-radius: var(--r-md); padding: 12px; display: flex; flex-direction: column; gap: 14px; transition: background .25s; }
+  .doc:hover { background: var(--sky-pale); }
+  .doc .thumb { aspect-ratio: 4 / 5; border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 0 1px 3px rgba(30,50,70,.12); }
+  .doc .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .doc .meta { padding: 0 4px 4px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .doc .kind { align-self: flex-start; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: #fff; color: var(--link); }
+  .doc .kind.cert { background: var(--dark); color: #fff; }
+  .doc h3 { font-size: 14.5px; font-weight: 700; line-height: 1.3; }
+  .doc .no { font-size: 12px; color: var(--muted); }
+  .doc .go { margin-top: auto; padding-top: 6px; font-size: 12.5px; font-weight: 600; color: var(--link); }
 
   /* ---------- CONTACTS ---------- */
   .contact { display: grid; grid-template-columns: 1fr 1.1fr; gap: 14px; }
@@ -241,16 +260,24 @@
 
   /* ---------- responsive ---------- */
   @media (max-width: 1000px) {
-    .row-2, .about, .contact { grid-template-columns: minmax(0, 1fr); }
+    .topbar { flex-wrap: wrap; row-gap: 10px; }
+    .topbar > .nav { order: 2; width: 100%; overflow-x: auto; gap: 18px; padding-bottom: 4px; white-space: nowrap; scrollbar-width: none; }
+    .about, .contact { grid-template-columns: minmax(0, 1fr); }
+    .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cat.feature { grid-row: span 1; min-height: 320px; }
+    .prod-grid { grid-template-columns: minmax(0, 1fr); }
+    .pcol { flex-direction: row; }
+    .pcol .ph { width: 40%; height: auto; min-height: 260px; flex: none; }
+    .docs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .partners-strip { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+    .partners-strip .label { padding: 0 20px; }
+    .partners-strip .label br { display: none; }
     .values-grid { grid-template-columns: minmax(0, 1fr); }
     .values .media { padding-top: 130px; }
   }
   @media (max-width: 720px) {
     .page { padding: 16px 12px 40px; gap: 16px; }
     .card { padding: 16px; border-radius: 22px; }
-    .topbar { flex-wrap: wrap; row-gap: 10px; }
-    .topbar > .nav { order: 2; width: 100%; overflow-x: auto; gap: 18px; padding-bottom: 4px; white-space: nowrap; scrollbar-width: none; }
-    .notch .nav, .nav.faint { display: none; }
     :root { --notch: 22px; }
     .hero .media { height: 640px; }
     .hero .notch.tl { max-width: 92%; padding: 6px 18px 16px 6px; }
@@ -260,8 +287,15 @@
     .hero-stats { left: 16px; bottom: 116px; max-width: calc(100% - 32px); }
     .hero-stats div { min-width: 0; flex: 1; padding: 10px 12px; }
     .hero-stats b { font-size: 20px; }
-    .split, .cols-3, .stats { grid-template-columns: minmax(0, 1fr); }
-    .certs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stats, .catalog { grid-template-columns: minmax(0, 1fr); }
+    .cat.feature { grid-column: auto; }
+    .cat { min-height: 0; }
+    .pcol { flex-direction: column; }
+    .pcol .ph { width: auto; min-height: 0; height: 200px; }
+    .docs { gap: 10px; }
+    .doc .no { display: none; }
+    .marquee-track { gap: 36px; padding-right: 36px; }
+    .marquee-track img { height: 36px; }
     form { grid-template-columns: minmax(0, 1fr); }
     form .foot { flex-direction: column; align-items: stretch; }
   }
@@ -277,8 +311,8 @@
       <nav class="nav" aria-label="Основное меню">
         <a href="#about">О нас</a>
         <a href="#products">Продукция</a>
-        <a href="#values">Ценности</a>
-        <a href="#partners">Партнёры</a>
+        <a href="#production">Производство</a>
+        <a href="#documents">Документы</a>
         <a href="#contact">Контакты</a>
         <a href="#pharmacovigilance">Фармаконадзор</a>
       </nav>
@@ -303,104 +337,149 @@
 
       <div class="notch br">
         <div class="hero-plate">
-          <span class="ring"></span>
+          <img class="plate-logo" src="img/p1-64.webp" width="30" height="39" alt="">
           <span>Тульская фармацевтическая фабрика — участник НОЦ мирового уровня «ТулаТех»</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02 + 03 · PRODUCTS / PRODUCTION -->
-  <div class="row-2">
-    <section class="card" id="products">
-      <div class="topbar">
-        <div class="nav faint" aria-hidden="true" style="gap:16px;font-size:10px"><span>О нас</span><span class="on">Продукция</span><span>Партнёры</span><span>Контакты</span></div>
-        <span class="mini-brand"><img src="img/p1-64.webp" width="26" height="34" alt="">Тульская фарм. фабрика</span>
+  <!-- 02 · PARTNERS -->
+  <section class="card partners-strip" id="partners" aria-label="Партнёры">
+    <p class="label">Препараты фабрики —<br>в аптечных сетях</p>
+    <div class="marquee">
+      <div class="marquee-track">
+        <img src="img/partners/aprel.webp" width="203" height="46" alt="Аптечная сеть «Апрель»">
+        <img src="img/partners/farmlend.webp" width="93" height="46" alt="Фармленд">
+        <img src="img/partners/tvoy-doktor.webp" width="107" height="46" alt="Аптеки «Твой доктор»">
+        <img src="img/partners/planeta-zdorovya.webp" width="165" height="46" alt="Сеть аптек «Планета Здоровья»">
+        <img src="img/partners/aloe.webp" width="110" height="46" alt="Аптека «Алоэ»">
+        <img src="img/partners/zdravservis.webp" width="189" height="46" alt="ООО «Здравсервис»">
+        <img src="img/partners/stolichki.webp" width="169" height="46" alt="Сеть аптек «Столички»">
+        <img src="img/partners/36-6.webp" width="46" height="46" alt="Аптечная сеть 36,6">
+        <span aria-hidden="true" style="display:contents">
+          <img src="img/partners/aprel.webp" width="203" height="46" alt="">
+          <img src="img/partners/farmlend.webp" width="93" height="46" alt="">
+          <img src="img/partners/tvoy-doktor.webp" width="107" height="46" alt="">
+          <img src="img/partners/planeta-zdorovya.webp" width="165" height="46" alt="">
+          <img src="img/partners/aloe.webp" width="110" height="46" alt="">
+          <img src="img/partners/zdravservis.webp" width="189" height="46" alt="">
+          <img src="img/partners/stolichki.webp" width="169" height="46" alt="">
+          <img src="img/partners/36-6.webp" width="46" height="46" alt="">
+        </span>
       </div>
-      <h2 class="h-section">Формы <span class="sky">выпуска</span></h2>
+    </div>
+  </section>
 
-      <div class="split">
-        <div>
-          <div class="toggles" id="toggles">
-            <button class="tog" aria-pressed="false" type="button">
-              <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 3h8v4l-1 1v11a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V8L8 7z"/><path d="M9 12h6"/></svg></span>
-              <span><span class="t-title">Мягкие формы</span><span class="t-text">Гели, крема, мази и пасты: Ацикловир, Гепариновая мазь, Декспантенол, Диклофенак-гель.</span></span>
-              <span class="switch"></span>
-            </button>
-            <button class="tog light" aria-pressed="true" type="button">
-              <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
-              <span><span class="t-title">Жидкие формы</span><span class="t-text">Растворы, настойки, экстракты, масла, капли, спреи, сиропы и эликсиры.</span></span>
-              <span class="switch"></span>
-            </button>
-            <button class="tog dark" aria-pressed="false" type="button">
-              <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="M12 7.5l-3.7 8.3" transform="rotate(-35 12 12)"/></svg></span>
-              <span><span class="t-title">Суппозитории, порошки, таблетки</span><span class="t-text">Суппозитории, порошки и гранулы для приготовления, таблетки и капсулы.</span></span>
-              <span class="switch"></span>
-            </button>
-          </div>
-          <a class="more" href="https://tulapharm.com/catalog">Каталог продукции на tulapharm.com →</a>
-        </div>
-        <div class="media side-photo">
-          <img class="bg" src="img/p3-1024.webp" srcset="img/p3-600.webp 600w, img/p3-1024.webp 1024w" sizes="(max-width: 720px) 100vw, 300px" width="1024" height="451" loading="lazy" alt="Линия фасовки">
-          <div class="caps">
-            <span>Фасовка жидких и мягких лекарственных форм — первичная и вторичная упаковка.</span>
-            <span>Только сырьё из реестра одобренных производителей и поставщиков.</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- 03 · CATALOG -->
+  <section class="card" id="products">
+    <div class="sec-head">
+      <h2 class="h-section">Каталог <span class="sky">продукции</span></h2>
+      <p>Восемь групп лекарственных форм — от мазей и гелей до суппозиториев и сиропов. Полный перечень с инструкциями — в каталоге на сайте фабрики.</p>
+    </div>
+    <div class="catalog">
+      <a class="cat feature" href="https://tulapharm.com/catalog/category/1-geli-krema-mazi-i-pasty" target="_blank" rel="noopener">
+        <img src="img/p3-1024.webp" srcset="img/p3-600.webp 600w, img/p3-1024.webp 1024w" sizes="(max-width: 720px) 100vw, 600px" width="1024" height="451" loading="lazy" alt="">
+        <span class="tag glass">Самая большая группа</span>
+        <h3>Гели, крема, мази и пасты</h3>
+        <ul><li>Ацикловир, крем · Гепариновая мазь · Декспантенол, мазь · Диклофенак, гель · Бетанецин · Гидрокортизон</li></ul>
+        <span class="go">Смотреть группу →</span>
+      </a>
+      <a class="cat" href="https://tulapharm.com/catalog/category/18-balzamy-rastvory-i-koncentraty" target="_blank" rel="noopener">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v4l-3 3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9l-3-3V3"/><path d="M7 14h10"/></svg></span>
+        <h3>Бальзамы, растворы и&nbsp;концентраты</h3>
+        <ul><li>Амброксол</li><li>Бриллиантовый зелёный</li><li>Димексид</li></ul>
+        <span class="go">Смотреть →</span>
+      </a>
+      <a class="cat" href="https://tulapharm.com/catalog/category/20-nastojki-ekstrakty-i-masla" target="_blank" rel="noopener">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-2-7-6-7-11 4 0 7 2 7 6 0-4 3-6 7-6 0 5-3 9-7 11z"/><path d="M12 16V8"/></svg></span>
+        <h3>Настойки, экстракты и&nbsp;масла</h3>
+        <ul><li>Валерианы настойка</li><li>Женьшеня настойка</li><li>Календулы настойка</li></ul>
+        <span class="go">Смотреть →</span>
+      </a>
+      <a class="cat" href="https://tulapharm.com/catalog/category/23-suppozitorii" target="_blank" rel="noopener">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 2 4 5 4 8v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8c0-3 1.5-6 4-8z"/></svg></span>
+        <h3>Суппозитории</h3>
+        <ul><li>Анузол</li><li>Бисакодил</li><li>Индометацин</li></ul>
+        <span class="go">Смотреть →</span>
+      </a>
+      <a class="cat" href="https://tulapharm.com/catalog/category/19-kapli-i-sprei" target="_blank" rel="noopener">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
+        <h3>Капли и спреи</h3>
+        <ul><li>Бромгексин</li><li>Гутафлос</li><li>Зубные капли</li></ul>
+        <span class="go">Смотреть →</span>
+      </a>
+      <a class="cat" href="https://tulapharm.com/catalog/category/21-poroski-i-granuly-dla-prigotovlenia" target="_blank" rel="noopener">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l-1.5 11a2 2 0 0 1-2 1.7h-9a2 2 0 0 1-2-1.7z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg></span>
+        <h3>Порошки и гранулы</h3>
+        <ul><li>Аквацитрамон</li><li>Бацидерм</li><li>Гальманин</li></ul>
+        <span class="go">Смотреть →</span>
+      </a>
+      <a class="cat" href="https://tulapharm.com/catalog/category/22-siropy-i-eliksiry" target="_blank" rel="noopener">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2h4v4l2 2v12a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8l2-2z"/><path d="M8 13h8"/></svg></span>
+        <h3>Сиропы и эликсиры</h3>
+        <ul><li>Солодки сироп</li><li>Нурофактор</li><li>Циндол</li></ul>
+        <span class="go">Смотреть →</span>
+      </a>
+      <a class="cat" href="https://tulapharm.com/catalog/category/24-tabletki-i-kapsuly" target="_blank" rel="noopener">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-35 12 12)"/><path d="M12 7.5l-3.7 8.3" transform="rotate(-35 12 12)"/></svg></span>
+        <h3>Таблетки и капсулы</h3>
+        <ul><li>Аевит</li></ul>
+        <span class="go">Смотреть →</span>
+      </a>
+      <a class="cat cta" href="https://tulapharm.com/catalog" target="_blank" rel="noopener">
+        <b>237+</b>
+        <p>наименований выпускает фабрика, из них более 20 — из перечня ЖНВЛП</p>
+        <span class="go">Весь каталог →</span>
+      </a>
+    </div>
+  </section>
 
-    <section class="card" id="production">
-      <div class="topbar">
-        <div class="nav faint" aria-hidden="true" style="gap:16px;font-size:10px"><span>О нас</span><span class="on">Производство</span><span>Партнёры</span><span>Контакты</span></div>
-        <span class="mini-brand"><img src="img/p1-64.webp" width="26" height="34" alt="">Тульская фарм. фабрика</span>
-      </div>
+  <!-- 04 · PRODUCTION -->
+  <section class="card" id="production">
+    <div class="sec-head">
       <h2 class="h-section"><span class="sky">Производство</span><span class="dot-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg></span>GMP</h2>
+      <p>Производство организовано по правилам надлежащей производственной практики. При выпуске используется только сырьё из реестра одобренных производителей и поставщиков.</p>
+    </div>
+    <div class="prod-grid">
+      <article class="pcol">
+        <div class="ph"><span class="num glass">01</span><img src="img/p3-600.webp" width="600" height="264" loading="lazy" alt="Линия фасовки лекарственных препаратов"></div>
+        <div class="body">
+          <h3>Производство лекарственных форм</h3>
+          <div class="chips"><span class="chip">Растворы</span><span class="chip">Настойки</span><span class="chip">Линименты</span><span class="chip">Мази</span><span class="chip">Масла</span><span class="chip">Суспензии</span><span class="chip">Экстракты</span><span class="chip">Порошки</span></div>
+          <p>Фармацевтические субстанции и нестерильные лекарственные формы. Упаковка — первичная и вторичная — жидких и мягких форм.</p>
+          <ul class="facts"><li><span>Производство</span><b>3 этаж</b></li><li><span>Упаковка</span><b>2 этаж</b></li></ul>
+        </div>
+      </article>
+      <article class="pcol">
+        <div class="ph"><span class="num glass">02</span><img src="img/p2-800.webp" width="800" height="533" loading="lazy" alt="Ёмкости производственного цеха" style="object-position:80% 50%"></div>
+        <div class="body">
+          <h3>Водоподготовка</h3>
+          <div class="chips"><span class="chip">Вода очищенная</span><span class="chip">Квалификация IQ / OQ</span></div>
+          <p>Вода очищенная участвует в подготовке помещений и посуды и в приготовлении препаратов. Соответствует ФС.2.2.0020.15.</p>
+          <ul class="facts"><li><span>Установка</span><b>2T-PWG</b></li><li><span>Производитель</span><b>Water Siyuan Group, Китай</b></li></ul>
+        </div>
+      </article>
+      <article class="pcol">
+        <div class="ph"><span class="num glass">03</span><img src="img/p6-800.webp" width="800" height="533" loading="lazy" alt="Сотрудник у реактора в чистом помещении" style="object-position:60% 40%"></div>
+        <div class="body">
+          <h3>Воздухоподготовка</h3>
+          <div class="chips"><span class="chip">Приток и вытяжка</span><span class="chip">Двухступенчатая очистка</span></div>
+          <p>Помещения для приготовления полупродуктов получают воздух, прошедший двухступенчатую очистку.</p>
+          <ul class="facts"><li><span>Класс помещений</span><b>K</b></li><li><span>Вентиляция</span><b>ООО «Арктика»</b></li></ul>
+        </div>
+      </article>
+    </div>
+  </section>
 
-      <div class="cols-3">
-        <article class="pcol">
-          <div class="body">
-            <span class="num">01</span>
-            <h3>Производство лекарственных форм</h3>
-            <div class="chips"><span class="chip">Растворы</span><span class="chip">Мази</span><span class="chip">Настойки</span><span class="chip">Порошки</span></div>
-            <div class="label">3 этаж</div>
-            <p>Субстанции и нестерильные формы: растворы, линименты, масла, суспензии, экстракты. На 2 этаже — упаковка.</p>
-          </div>
-          <div class="ph"><img src="img/p3-600.webp" width="600" height="264" loading="lazy" alt=""></div>
-        </article>
-        <article class="pcol">
-          <div class="body">
-            <span class="num">02</span>
-            <h3>Водоподготовка</h3>
-            <div class="chips"><span class="chip">ФС.2.2.0020.15</span><span class="chip">IQ / OQ</span></div>
-            <div class="label">Установка 2T-PWG</div>
-            <p>Вода очищенная участвует в подготовке помещений, посуды и приготовлении препаратов. Оборудование прошло квалификацию.</p>
-          </div>
-          <div class="ph"><img src="img/p2-800.webp" width="800" height="533" loading="lazy" alt="" style="object-position:80% 50%"></div>
-        </article>
-        <article class="pcol">
-          <div class="body">
-            <span class="num">03</span>
-            <h3>Воздухоподготовка</h3>
-            <div class="chips"><span class="chip">Класс K</span><span class="chip">2 ступени</span></div>
-            <div class="label">Приток и вытяжка</div>
-            <p>Помещения для полупродуктов получают воздух, прошедший двухступенчатую очистку.</p>
-          </div>
-          <div class="ph"><img src="img/p6-800.webp" width="800" height="533" loading="lazy" alt="" style="object-position:60% 40%"></div>
-        </article>
-      </div>
-    </section>
-  </div>
-
-  <!-- 04 · VALUES -->
+  <!-- 05 · VALUES -->
   <section class="card values" id="values">
     <div class="media">
       <img class="bg" src="img/p6-1600.webp" srcset="img/p6-800.webp 800w, img/p6-1600.webp 1600w" sizes="(max-width: 720px) 100vw, 1200px" width="1600" height="1066" loading="lazy" alt="">
       <div class="notch tl">
-        <div class="nav faint" aria-hidden="true" style="font-size:12px;margin-bottom:26px"><span>О нас</span><span class="on">Ценности</span><span>Продукция</span><span>Контакты</span></div>
         <h2 class="h-display" style="font-size:clamp(26px,3vw,38px)">Наши<br><span class="sky">ценности</span></h2>
       </div>
-      <div class="notch tr"><span class="brand" style="font-size:11px"><span class="ring" style="width:18px;height:18px"></span>Тульская фармацевтическая фабрика</span></div>
+      <div class="notch tr"><span class="brand values-brand"><img src="img/p1-64.webp" width="22" height="29" alt="">Тульская фармацевтическая фабрика</span></div>
 
       <div class="values-grid">
         <article class="vcard glass">
@@ -434,7 +513,7 @@
     </div>
   </section>
 
-  <!-- 05 · ABOUT -->
+  <!-- 06 · ABOUT -->
   <section class="card about" id="about">
     <div class="text">
       <h2 class="h-section">О <span class="sky">фабрике</span></h2>
@@ -450,28 +529,53 @@
     </div>
   </section>
 
-  <!-- 06 · CERTIFICATES + PARTNERS -->
-  <div class="row-2">
-    <section class="card">
-      <h2 class="h-section">Наши <span class="sky">сертификаты</span></h2>
-      <div class="certs">
-        <div class="cert"><img src="img/p7-360.webp" width="360" height="495" alt="Лицензия Росздравнадзора на фармацевтическую деятельность ФС-99-02-005672" loading="lazy"><a href="https://tulapharm.com/storage/uploads/dd1641b2daa56a0aea2008834c8ff09a772b2d7d-WYDMO.pdf" target="_blank" rel="noopener">Фармдеятельность <span>PDF ↓</span></a></div>
-        <div class="cert"><img src="img/p8-360.webp" width="360" height="495" alt="Лицензия Минпромторга на производство лекарственных средств № 00281-ЛС" loading="lazy"><a href="https://tulapharm.com/storage/uploads/322e4dc9fcd75b5fd164ffb1c004fbbc4b12b2e7-gU_zA.pdf" target="_blank" rel="noopener">Производство ЛС <span>PDF ↓</span></a></div>
-        <div class="cert"><img src="img/p9-360.webp" width="360" height="509" alt="Сертификат соответствия правилам GMP ЕАЭС № GMP/EAEU/RU/00104-2021" loading="lazy"><a href="https://tulapharm.com/storage/uploads/58e63d150326ed9a1a9db54ca017eba4d756a301-LM9Nw.pdf" target="_blank" rel="noopener">GMP ЕАЭС <span>PDF ↓</span></a></div>
-        <div class="cert"><img src="img/p10-360.webp" width="360" height="509" alt="Лицензия на оборот наркотических средств и психотропных веществ ФС-99-03-000380" loading="lazy"><a href="https://tulapharm.com/storage/uploads/f93bfd67971178721c607d6763cd82eae8fe3c85-DxUMH.pdf" target="_blank" rel="noopener">Оборот НС и ПВ <span>PDF ↓</span></a></div>
-      </div>
-    </section>
-    <section class="card" id="partners">
-      <h2 class="h-section">Наши <span class="sky">партнёры</span></h2>
-      <p class="lead" style="margin-top:12px;font-size:14px">Ведущие федеральные и региональные аптечные сети, а также аптеки местного значения.</p>
-      <div class="partners">
-        <span>АС «Апрель»</span><span>Фармленд</span><span>Аптеки «Твой доктор»</span><span>Планета Здоровья</span>
-        <span>Аптека «Алоэ»</span><span>ООО «Здравсервис»</span><span>Аптеки «Столички»</span><span>Аптечная сеть 36,6</span>
-      </div>
-    </section>
-  </div>
+  <!-- 07 · LICENSES & CERTIFICATES -->
+  <section class="card" id="documents">
+    <div class="sec-head">
+      <h2 class="h-section">Лицензии <span class="sky">и сертификаты</span></h2>
+      <p>Разрешительные документы фабрики. Полные версии открываются в PDF.</p>
+    </div>
+    <div class="docs">
+      <a class="doc" href="https://tulapharm.com/storage/uploads/322e4dc9fcd75b5fd164ffb1c004fbbc4b12b2e7-gU_zA.pdf" target="_blank" rel="noopener">
+        <div class="thumb"><img src="img/p8-360.webp" width="360" height="495" loading="lazy" alt="Скан лицензии № 00281-ЛС"></div>
+        <div class="meta">
+          <span class="kind">Лицензия</span>
+          <h3>Производство лекарственных средств</h3>
+          <span class="no">№ 00281-ЛС · Минпромторг России</span>
+          <span class="go">Открыть PDF ↗</span>
+        </div>
+      </a>
+      <a class="doc" href="https://tulapharm.com/storage/uploads/58e63d150326ed9a1a9db54ca017eba4d756a301-LM9Nw.pdf" target="_blank" rel="noopener">
+        <div class="thumb"><img src="img/p9-360.webp" width="360" height="509" loading="lazy" alt="Скан сертификата GMP ЕАЭС"></div>
+        <div class="meta">
+          <span class="kind cert">Сертификат</span>
+          <h3>Соответствие правилам GMP ЕАЭС</h3>
+          <span class="no">№ GMP/EAEU/RU/00104-2021 · Минпромторг России</span>
+          <span class="go">Открыть PDF ↗</span>
+        </div>
+      </a>
+      <a class="doc" href="https://tulapharm.com/storage/uploads/dd1641b2daa56a0aea2008834c8ff09a772b2d7d-WYDMO.pdf" target="_blank" rel="noopener">
+        <div class="thumb"><img src="img/p7-360.webp" width="360" height="495" loading="lazy" alt="Скан лицензии ФС-99-02-005672"></div>
+        <div class="meta">
+          <span class="kind">Лицензия</span>
+          <h3>Фармацевтическая деятельность</h3>
+          <span class="no">№ ФС-99-02-005672 от 07.11.2016 · Росздравнадзор</span>
+          <span class="go">Открыть PDF ↗</span>
+        </div>
+      </a>
+      <a class="doc" href="https://tulapharm.com/storage/uploads/f93bfd67971178721c607d6763cd82eae8fe3c85-DxUMH.pdf" target="_blank" rel="noopener">
+        <div class="thumb"><img src="img/p10-360.webp" width="360" height="509" loading="lazy" alt="Скан лицензии ФС-99-03-000380"></div>
+        <div class="meta">
+          <span class="kind">Лицензия</span>
+          <h3>Оборот наркотических средств и&nbsp;психотропных веществ</h3>
+          <span class="no">№ ФС-99-03-000380 от 20.07.2020 · Росздравнадзор</span>
+          <span class="go">Открыть PDF ↗</span>
+        </div>
+      </a>
+    </div>
+  </section>
 
-  <!-- 07 · CONTACTS -->
+  <!-- 08 · CONTACTS -->
   <section class="card" id="contact">
     <h2 class="h-section">Наши <span class="sky">контакты</span></h2>
     <div class="contact">
@@ -507,13 +611,6 @@
 </main>
 
 <script>
-  // переключатели форм выпуска: активен один пункт
-  document.querySelectorAll('#toggles .tog').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#toggles .tog').forEach(b => b.setAttribute('aria-pressed', b === btn));
-    });
-  });
-
   // форма: своя проверка полей, затем письмо через почтовый клиент (бэкенда нет)
   const form = document.getElementById('feedback');
   const msg = form.querySelector('.form-msg');
