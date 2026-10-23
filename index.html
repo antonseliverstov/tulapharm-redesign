@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Тульская фармацевтическая фабрика</title>
 <meta name="description" content="ООО «Тульская фармацевтическая фабрика» — производство лекарственных препаратов с 1972 года: мази, гели, растворы, настойки, суппозитории, порошки.">
-<link rel="icon" href="img/p1.jpg">
+<link rel="icon" href="img/p1-64.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"></noscript>
 <style>
   :root {
     --bg: #e7e9ec;
@@ -233,7 +234,7 @@
   form [aria-invalid="true"] { border-color: #ff8a8a; }
   .form-msg { grid-column: 1 / -1; font-size: 12px; color: var(--sky-soft); min-height: 1em; }
   .form-msg:empty { display: none; }
-  .cline a { color: var(--link); }
+  .cline a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
   .cline.pv { background: var(--sky-pale); }
 
   footer { text-align: center; font-size: 12px; color: var(--muted); }
@@ -272,7 +273,7 @@
   <!-- 01 · HERO -->
   <section class="card hero" id="top">
     <header class="topbar">
-      <a class="brand" href="#top"><img src="img/p1.jpg" alt="">ООО «Тульская фармацевтическая фабрика»</a>
+      <a class="brand" href="#top"><img src="img/p1-64.webp" width="26" height="34" alt="">ООО «Тульская фармацевтическая фабрика»</a>
       <nav class="nav" aria-label="Основное меню">
         <a href="#about">О нас</a>
         <a href="#products">Продукция</a>
@@ -284,7 +285,7 @@
     </header>
 
     <div class="media">
-      <img class="bg" src="img/p2.jpg" alt="Производственный цех фабрики">
+      <img class="bg" src="img/p2-1024.webp" srcset="img/p2-800.webp 800w, img/p2-1024.webp 1024w" sizes="(max-width: 720px) 100vw, 1200px" width="1024" height="682" fetchpriority="high" alt="Производственный цех фабрики">
       <div class="notch tl">
         <h1 class="h-display">
           <span class="sky">Производство по стандартам GMP</span><br>
@@ -314,7 +315,7 @@
     <section class="card" id="products">
       <div class="topbar">
         <div class="nav faint" aria-hidden="true" style="gap:16px;font-size:10px"><span>О нас</span><span class="on">Продукция</span><span>Партнёры</span><span>Контакты</span></div>
-        <span class="mini-brand"><img src="img/p1.jpg" alt="">Тульская фарм. фабрика</span>
+        <span class="mini-brand"><img src="img/p1-64.webp" width="26" height="34" alt="">Тульская фарм. фабрика</span>
       </div>
       <h2 class="h-section">Формы <span class="sky">выпуска</span></h2>
 
@@ -340,7 +341,7 @@
           <a class="more" href="https://tulapharm.com/catalog">Каталог продукции на tulapharm.com →</a>
         </div>
         <div class="media side-photo">
-          <img class="bg" src="img/p3.jpg" alt="Линия фасовки">
+          <img class="bg" src="img/p3-1024.webp" srcset="img/p3-600.webp 600w, img/p3-1024.webp 1024w" sizes="(max-width: 720px) 100vw, 300px" width="1024" height="451" loading="lazy" alt="Линия фасовки">
           <div class="caps">
             <span>Фасовка жидких и мягких лекарственных форм — первичная и вторичная упаковка.</span>
             <span>Только сырьё из реестра одобренных производителей и поставщиков.</span>
@@ -352,7 +353,7 @@
     <section class="card" id="production">
       <div class="topbar">
         <div class="nav faint" aria-hidden="true" style="gap:16px;font-size:10px"><span>О нас</span><span class="on">Производство</span><span>Партнёры</span><span>Контакты</span></div>
-        <span class="mini-brand"><img src="img/p1.jpg" alt="">Тульская фарм. фабрика</span>
+        <span class="mini-brand"><img src="img/p1-64.webp" width="26" height="34" alt="">Тульская фарм. фабрика</span>
       </div>
       <h2 class="h-section"><span class="sky">Производство</span><span class="dot-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg></span>GMP</h2>
 
@@ -365,7 +366,7 @@
             <div class="label">3 этаж</div>
             <p>Субстанции и нестерильные формы: растворы, линименты, масла, суспензии, экстракты. На 2 этаже — упаковка.</p>
           </div>
-          <div class="ph"><img src="img/p3.jpg" alt=""></div>
+          <div class="ph"><img src="img/p3-600.webp" width="600" height="264" loading="lazy" alt=""></div>
         </article>
         <article class="pcol">
           <div class="body">
@@ -375,7 +376,7 @@
             <div class="label">Установка 2T-PWG</div>
             <p>Вода очищенная участвует в подготовке помещений, посуды и приготовлении препаратов. Оборудование прошло квалификацию.</p>
           </div>
-          <div class="ph"><img src="img/p2.jpg" alt="" style="object-position:80% 50%"></div>
+          <div class="ph"><img src="img/p2-800.webp" width="800" height="533" loading="lazy" alt="" style="object-position:80% 50%"></div>
         </article>
         <article class="pcol">
           <div class="body">
@@ -385,7 +386,7 @@
             <div class="label">Приток и вытяжка</div>
             <p>Помещения для полупродуктов получают воздух, прошедший двухступенчатую очистку.</p>
           </div>
-          <div class="ph"><img src="img/p6.jpg" alt="" style="object-position:60% 40%"></div>
+          <div class="ph"><img src="img/p6-800.webp" width="800" height="533" loading="lazy" alt="" style="object-position:60% 40%"></div>
         </article>
       </div>
     </section>
@@ -394,7 +395,7 @@
   <!-- 04 · VALUES -->
   <section class="card values" id="values">
     <div class="media">
-      <img class="bg" src="img/p6.jpg" alt="">
+      <img class="bg" src="img/p6-1600.webp" srcset="img/p6-800.webp 800w, img/p6-1600.webp 1600w" sizes="(max-width: 720px) 100vw, 1200px" width="1600" height="1066" loading="lazy" alt="">
       <div class="notch tl">
         <div class="nav faint" aria-hidden="true" style="font-size:12px;margin-bottom:26px"><span>О нас</span><span class="on">Ценности</span><span>Продукция</span><span>Контакты</span></div>
         <h2 class="h-display" style="font-size:clamp(26px,3vw,38px)">Наши<br><span class="sky">ценности</span></h2>
@@ -444,7 +445,7 @@
     <div class="stats">
       <div class="stat sky"><b>50+</b><span>лет производим лекарства</span></div>
       <div class="stat"><b>237+</b><span>наименований препаратов</span></div>
-      <div class="stat photo"><img src="img/p4.jpg" alt=""><b>20+</b><span>препаратов из перечня ЖНВЛП</span></div>
+      <div class="stat photo"><img src="img/p4-480.webp" width="480" height="386" loading="lazy" alt=""><b>20+</b><span>препаратов из перечня ЖНВЛП</span></div>
       <div class="stat dark"><b>GMP</b><span>производство по правилам надлежащей практики</span></div>
     </div>
   </section>
@@ -454,10 +455,10 @@
     <section class="card">
       <h2 class="h-section">Наши <span class="sky">сертификаты</span></h2>
       <div class="certs">
-        <div class="cert"><img src="img/p7.jpg" alt="Лицензия Росздравнадзора на фармацевтическую деятельность ФС-99-02-005672" loading="lazy"><a href="https://tulapharm.com/storage/uploads/dd1641b2daa56a0aea2008834c8ff09a772b2d7d-WYDMO.pdf" target="_blank" rel="noopener">Фармдеятельность <span>PDF ↓</span></a></div>
-        <div class="cert"><img src="img/p8.jpg" alt="Лицензия Минпромторга на производство лекарственных средств № 00281-ЛС" loading="lazy"><a href="https://tulapharm.com/storage/uploads/322e4dc9fcd75b5fd164ffb1c004fbbc4b12b2e7-gU_zA.pdf" target="_blank" rel="noopener">Производство ЛС <span>PDF ↓</span></a></div>
-        <div class="cert"><img src="img/p9.jpg" alt="Сертификат соответствия правилам GMP ЕАЭС № GMP/EAEU/RU/00104-2021" loading="lazy"><a href="https://tulapharm.com/storage/uploads/58e63d150326ed9a1a9db54ca017eba4d756a301-LM9Nw.pdf" target="_blank" rel="noopener">GMP ЕАЭС <span>PDF ↓</span></a></div>
-        <div class="cert"><img src="img/p10.jpg" alt="Лицензия на оборот наркотических средств и психотропных веществ ФС-99-03-000380" loading="lazy"><a href="https://tulapharm.com/storage/uploads/f93bfd67971178721c607d6763cd82eae8fe3c85-DxUMH.pdf" target="_blank" rel="noopener">Оборот НС и ПВ <span>PDF ↓</span></a></div>
+        <div class="cert"><img src="img/p7-360.webp" width="360" height="495" alt="Лицензия Росздравнадзора на фармацевтическую деятельность ФС-99-02-005672" loading="lazy"><a href="https://tulapharm.com/storage/uploads/dd1641b2daa56a0aea2008834c8ff09a772b2d7d-WYDMO.pdf" target="_blank" rel="noopener">Фармдеятельность <span>PDF ↓</span></a></div>
+        <div class="cert"><img src="img/p8-360.webp" width="360" height="495" alt="Лицензия Минпромторга на производство лекарственных средств № 00281-ЛС" loading="lazy"><a href="https://tulapharm.com/storage/uploads/322e4dc9fcd75b5fd164ffb1c004fbbc4b12b2e7-gU_zA.pdf" target="_blank" rel="noopener">Производство ЛС <span>PDF ↓</span></a></div>
+        <div class="cert"><img src="img/p9-360.webp" width="360" height="495" alt="Сертификат соответствия правилам GMP ЕАЭС № GMP/EAEU/RU/00104-2021" loading="lazy"><a href="https://tulapharm.com/storage/uploads/58e63d150326ed9a1a9db54ca017eba4d756a301-LM9Nw.pdf" target="_blank" rel="noopener">GMP ЕАЭС <span>PDF ↓</span></a></div>
+        <div class="cert"><img src="img/p10-360.webp" width="360" height="495" alt="Лицензия на оборот наркотических средств и психотропных веществ ФС-99-03-000380" loading="lazy"><a href="https://tulapharm.com/storage/uploads/f93bfd67971178721c607d6763cd82eae8fe3c85-DxUMH.pdf" target="_blank" rel="noopener">Оборот НС и ПВ <span>PDF ↓</span></a></div>
       </div>
     </section>
     <section class="card" id="partners">
