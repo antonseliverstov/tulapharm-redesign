@@ -164,7 +164,7 @@ function productPage(p) {
     : `<span class="ph-icon">${icon(p.category, 64)}<span>Фото упаковки готовится</span></span>`;
   const sections = p.sections.length
     ? p.sections.map((s, i) => `      <details class="instr" open>
-        <summary><span class="instr-num">${String(i + 1).padStart(2, '0')}</span>${esc(s.title)}</summary>
+        <summary><span class="instr-num">${String(i + 1).padStart(2, '0')}</span><span class="instr-title">${esc(s.title)}</span></summary>
         <div class="instr-body">${s.html}</div>
       </details>`).join('\n')
     : `      <p class="instr-empty">Описание препарата приведено в инструкции по медицинскому применению${p.pdf ? ' — скачайте её в формате PDF выше' : ''}.</p>`;
